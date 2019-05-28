@@ -6,9 +6,14 @@ Most of the information here comes from Pieter's original web site (external lin
 
 # Authors
 Jason Au
+
 William Berry
+
 Kibeom Kim
+
 Shivali Pandya
+
 Peiqi Zhao
+
 
 Created on Andriod Studios 3.4.1 during Summer of 2019
