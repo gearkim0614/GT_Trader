@@ -4,16 +4,4 @@ This project is designing and implementing a classic open-source Palm Pilot game
 
 Most of the information here comes from Pieter's original web site (external link: http://ticc.uvt.nl/~pspronck/spacetrader/STFrames.html (Links to an external site.)Links to an external site.) or is derived from his original implementation. There are many ports of this game including to the PC via C#, on the iPhone and the Android. 
 
-# Authors
-Jason Au
-
-William Berry
-
-Kibeom Kim
-
-Shivali Pandya
-
-Peiqi Zhao
-
-
 Created on Andriod Studios 3.4.1 during Summer of 2019
