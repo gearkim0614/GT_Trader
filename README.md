@@ -8,6 +8,7 @@ Created on Andriod Studios 3.4.1 during Summer of 2019
 
 # Git Commands
 Get Started
+
 1.) git clone (URL here)
 
 2.) git status
