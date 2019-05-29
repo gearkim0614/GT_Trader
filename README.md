@@ -7,7 +7,9 @@ Most of the information here comes from Pieter's original web site (external lin
 Created on Andriod Studios 3.4.1 during Summer of 2019
 
 # Git Commands
-Get Started
+Get Started:
+
+path to where you want to save
 
 1.) git clone (URL here)
 
