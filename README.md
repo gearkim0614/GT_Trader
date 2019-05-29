@@ -9,6 +9,15 @@ Created on Andriod Studios 3.4.1 during Summer of 2019
 # Git Commands
 Get Started
 1.) git clone (URL here)
+
 2.) git status
-3.) git add (File name here)
-4.) git commit -m added index.
+
+3.) git branch (make branch)
+
+4.) git checkout (enter branch)
+
+5.) git add (File name here)
+
+6.) git commit -m "Message here".
+
+7.) git push
