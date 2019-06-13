@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.example.gttrader.Entity.DifficultyLevel;
+import com.example.gttrader.ViewModel.ConfigurationViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText playerNameText;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText engineerPoints;
     EditText fighterPoints;
     EditText traderPoints;
-    private Spinner levelSpinner;
+    Spinner levelSpinner;
 
 
     Button start_button;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         start_button = findViewById(R.id.startButton);
         playerNameText = findViewById(R.id.PlayerNameText);
         pilotPoints = findViewById(R.id.pilot_points);
-        engineerPoints = findViewById(R.id.fighter_points);
+        engineerPoints = findViewById(R.id.engineer_points);
         fighterPoints = findViewById(R.id.fighter_points);
         traderPoints = findViewById(R.id.trader_points);
         levelSpinner = findViewById(R.id.difficultySpinner);
@@ -47,34 +49,20 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         levelSpinner.setAdapter(adapter);
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-//    }
 
 
-    start_button.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-            String name = playerNameText.getText().toString();
-            int pilot_pts = Integer.parseInt(pilotPoints.getText().toString());
-            int engineer_pts = Integer.parseInt(engineerPoints.getText().toString());
-            int fighter_pts = Integer.parseInt(fighterPoints.getText().toString());
-            int trader_pts = Integer.parseInt(traderPoints.getText().toString());
-
-
-
-            DifficultyLevel level = (DifficultyLevel) levelSpinner.getSelectedItem();
-
-
-
-        }
-
-    });
+        start_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { // button clicked
+                String name = playerNameText.getText().toString();
+                int pilot_pts = Integer.parseInt(pilotPoints.getText().toString());
+                int engineer_pts = Integer.parseInt(engineerPoints.getText().toString());
+                int fighter_pts = Integer.parseInt(fighterPoints.getText().toString());
+                int trader_pts = Integer.parseInt(traderPoints.getText().toString());
+                DifficultyLevel level = (DifficultyLevel) levelSpinner.getSelectedItem();
+                if (!ConfigurationViewModel.addUpToSixteen(pilot_pts, engineer_pts, fighter_pts, trader_pts)) {
+                    Toast.makeText(getApplicationContext(), "Invalid skill points", Toast.LENGTH_LONG).show();
+                }
+            }});
 
 
 //    @Override
@@ -98,5 +86,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //        return super.onOptionsItemSelected(item);
 //    }
-}
+    }
+
+
 }
