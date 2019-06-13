@@ -3,6 +3,7 @@ package com.example.gttrader;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.example.gttrader.ViewModel.ConfigurationViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText playerNameText;
@@ -57,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
             int fighter_pts = Integer.parseInt(fighterPoints.getText().toString());
             int trader_pts = Integer.parseInt(traderPoints.getText().toString());
 
-        }
-
-    });
+            if (!ConfigurationViewModel.addUpToSixteen(pilot_pts, engineer_pts, fighter_pts, trader_pts)) {
+                Toast.makeText(getApplicationContext(), "Invalid skill points", Toast.LENGTH_LONG).show();
+            }
+        }});
 
 
 //    @Override
@@ -84,4 +87,6 @@ public class MainActivity extends AppCompatActivity {
 //        return super.onOptionsItemSelected(item);
 //    }
 }
+
+
 }
