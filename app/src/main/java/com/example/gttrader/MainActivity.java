@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     EditText pilotPoints;
     EditText engineerPoints;
     EditText fighterPoints;
-//    EditText insert last skill category here
+    EditText traderPoints;
+
 
     Button start_button;
 
@@ -31,10 +32,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         start_button = findViewById(R.id.startButton);
+        playerNameText = findViewById(R.id.PlayerNameText);
         pilotPoints = findViewById(R.id.pilot_points);
         engineerPoints = findViewById(R.id.fighter_points);
         fighterPoints = findViewById(R.id.fighter_points);
-        //add in last kind
+        traderPoints = findViewById(R.id.trader_points);
 
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             int pilot_pts = Integer.parseInt(pilotPoints.getText().toString());
             int engineer_pts = Integer.parseInt(engineerPoints.getText().toString());
             int fighter_pts = Integer.parseInt(fighterPoints.getText().toString());
-            //add in last one here
+            int trader_pts = Integer.parseInt(traderPoints.getText().toString());
 
         }
 
