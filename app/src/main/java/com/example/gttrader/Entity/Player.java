@@ -10,4 +10,16 @@ public class Player {
         this.skill_points = skill_points;
         this.credits = 1000;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int[] getSkill_points() {
+        return skill_points;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
 }
