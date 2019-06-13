@@ -36,23 +36,15 @@ public class MainActivity extends AppCompatActivity {
         start_button = findViewById(R.id.startButton);
         playerNameText = findViewById(R.id.PlayerNameText);
         pilotPoints = findViewById(R.id.pilot_points);
-        engineerPoints = findViewById(R.id.fighter_points);
+        engineerPoints = findViewById(R.id.engineer_points);
         fighterPoints = findViewById(R.id.fighter_points);
         traderPoints = findViewById(R.id.trader_points);
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-//    }
+
 
 
     start_button.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
+        public void onClick(View v) { // button clicked
             String name = playerNameText.getText().toString();
             int pilot_pts = Integer.parseInt(pilotPoints.getText().toString());
             int engineer_pts = Integer.parseInt(engineerPoints.getText().toString());
