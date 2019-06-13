@@ -1,8 +1,10 @@
 package com.example.gttrader;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.example.gttrader.Entity.DifficultyLevel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     EditText playerNameText;
@@ -20,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText engineerPoints;
     EditText fighterPoints;
     EditText traderPoints;
+    private Spinner levelSpinner;
 
 
     Button start_button;
@@ -37,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
         engineerPoints = findViewById(R.id.fighter_points);
         fighterPoints = findViewById(R.id.fighter_points);
         traderPoints = findViewById(R.id.trader_points);
+        levelSpinner = findViewById(R.id.difficultySpinner);
+
+        ArrayAdapter<DifficultyLevel> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, DifficultyLevel.values());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        levelSpinner.setAdapter(adapter);
 
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
             int engineer_pts = Integer.parseInt(engineerPoints.getText().toString());
             int fighter_pts = Integer.parseInt(fighterPoints.getText().toString());
             int trader_pts = Integer.parseInt(traderPoints.getText().toString());
+
+
+
+            DifficultyLevel level = (DifficultyLevel) levelSpinner.getSelectedItem();
+
+
 
         }
 
