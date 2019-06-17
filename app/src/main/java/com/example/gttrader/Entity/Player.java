@@ -68,6 +68,6 @@ public class Player {
     @Override
     public String toString() {
         return String.format("Player: %s, Credits: %d, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
-                credits, pilot_points, engineer_points,fighter_points, trader_points);
+                name, credits, pilot_points, engineer_points,fighter_points, trader_points);
     }
 }
