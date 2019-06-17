@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:foregroundTint="#FFFFFF"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    tools:context=".View.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
