@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     Button start_button;
+    Button quit_button;
 
 
     @Override
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         start_button = findViewById(R.id.startButton);
+        quit_button = findViewById(R.id.quitButton);
         playerNameText = findViewById(R.id.PlayerNameText);
         pilotPoints = findViewById(R.id.pilot_points);
         engineerPoints = findViewById(R.id.engineer_points);
@@ -73,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
                     //startActivity(new Intent(MainActivity.this, PlayerConfirmation.class));
 
                 }
+            }});
+
+        quit_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { // button clicked
+                finish();
+
+
             }});
 
 
