@@ -1,14 +1,18 @@
-package com.example.gttrader;
+package com.example.gttrader.View;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.content.Intent;
 
 import com.example.gttrader.Entity.DifficultyLevel;
+import com.example.gttrader.R;
 import com.example.gttrader.ViewModel.ConfigurationViewModel;
+import com.example.gttrader.Entity.Player;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -61,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 DifficultyLevel level = (DifficultyLevel) levelSpinner.getSelectedItem();
                 if (!ConfigurationViewModel.addUpToSixteen(pilot_pts, engineer_pts, fighter_pts, trader_pts)) {
                     Toast.makeText(getApplicationContext(), "Invalid skill points", Toast.LENGTH_LONG).show();
+                }
+
+                else {
+                    ConfigurationViewModel.initNewPlayer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
+                    startActivity(new Intent(MainActivity.this, PlayerConfirmation.class));
+
                 }
             }});
 
