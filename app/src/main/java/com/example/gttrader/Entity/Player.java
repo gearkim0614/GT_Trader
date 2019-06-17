@@ -4,16 +4,16 @@ public class Player {
     private String name;
     private int pilot_points;
     private int engineer_points;
-    private int fighter_pointers;
-    private int trader_pointers;
+    private int fighter_points;
+    private int trader_points;
     private int credits;
 
-    public Player(String name, int pilot_points, int engineer_points, int fighter_pointers, int trader_pointers, int credits) {
+    public Player(String name, int pilot_points, int engineer_points, int fighter_points, int trader_points) {
         this.name = name;
         this.pilot_points = pilot_points;
         this.engineer_points = engineer_points;
-        this.fighter_pointers = fighter_pointers;
-        this.trader_pointers = trader_pointers;
+        this.fighter_points = fighter_points;
+        this.trader_points = trader_points;
         this.credits = 1000;
     }
 
@@ -41,20 +41,20 @@ public class Player {
         this.engineer_points = engineer_points;
     }
 
-    public int getFighter_pointers() {
-        return fighter_pointers;
+    public int getFighter_points() {
+        return fighter_points;
     }
 
-    public void setFighter_pointers(int fighter_pointers) {
-        this.fighter_pointers = fighter_pointers;
+    public void setFighter_points(int fighter_pointers) {
+        this.fighter_points = fighter_pointers;
     }
 
-    public int getTrader_pointers() {
-        return trader_pointers;
+    public int getTrader_points() {
+        return trader_points;
     }
 
-    public void setTrader_pointers(int trader_pointers) {
-        this.trader_pointers = trader_pointers;
+    public void setTrader_points(int trader_pointers) {
+        this.trader_points = trader_pointers;
     }
 
     public int getCredits() {
@@ -63,5 +63,11 @@ public class Player {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Player: %s, Credits: %d, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
+                credits, pilot_points, engineer_points,fighter_points, trader_points);
     }
 }
