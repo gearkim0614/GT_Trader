@@ -11,7 +11,7 @@ Get Started:
 
 path to where you want to save
 
-1.) git clone (URL here)
+1.) git clone (URL here) or git pull origin master
 
 2.) git status
 
@@ -23,4 +23,10 @@ path to where you want to save
 
 6.) git commit -m "Message here".
 
-7.) git push
+7.) git push origin (your branch name)
+
+8.) do pull request on github website
+
+# Other Git
+
+git rm (to remove file)
