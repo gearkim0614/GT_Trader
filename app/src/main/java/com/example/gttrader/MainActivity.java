@@ -7,6 +7,7 @@ import android.content.Intent;
 
 import com.example.gttrader.Entity.DifficultyLevel;
 import com.example.gttrader.R;
+import com.example.gttrader.View.Main2Activity;
 import com.example.gttrader.ViewModel.ConfigurationViewModel;
 import com.example.gttrader.Entity.Player;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
                 else {
                     ConfigurationViewModel.initNewPlayer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
+                    ConfigurationViewModel.makeRegions();
+                    startActivity(new Intent(MainActivity.this, Main2Activity.class));
                     Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();
                     //startActivity(new Intent(MainActivity.this, PlayerConfirmation.class));
 
