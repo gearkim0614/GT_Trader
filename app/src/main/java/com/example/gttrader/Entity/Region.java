@@ -54,4 +54,15 @@ public abstract class Region {
     public void setTechLevel(TechLevel techLevel) {
         this.techLevel = techLevel;
     }
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "name='" + name + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", resource=" + resource +
+                ", techLevel=" + techLevel +
+                '}';
+    }
 }

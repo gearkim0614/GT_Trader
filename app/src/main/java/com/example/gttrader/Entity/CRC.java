@@ -2,7 +2,7 @@ package com.example.gttrader.Entity;
 
 public class CRC extends Region {
 
-    public CRC(String name, double latitude, double longitude, Resource resource, TechLevel techLevel) {
+    public CRC() {
         super("CRC", 33.775627, -84.403491, Resource.LOTSOFWATER, TechLevel.INDUSTRIAL);
     }
 
