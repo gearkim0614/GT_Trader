@@ -71,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 else {
-                    ConfigurationViewModel.initNewPlayer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
-                    ConfigurationViewModel.makeRegions();
+                    ConfigurationViewModel.initializer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
+                    //ConfigurationViewModel.makeRegions();
+                    //ConfigurationViewModel.initNewPlayer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
                     startActivity(new Intent(MainActivity.this, Main2Activity.class));
                     Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();
                     //startActivity(new Intent(MainActivity.this, PlayerConfirmation.class));

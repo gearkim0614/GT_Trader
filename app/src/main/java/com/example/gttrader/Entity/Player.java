@@ -7,6 +7,7 @@ public class Player {
     private int fighter_points;
     private int trader_points;
     private int credits;
+    private Region region;
 
     public Player(String name, int pilot_points, int engineer_points, int fighter_points, int trader_points) {
         this.name = name;
@@ -15,6 +16,7 @@ public class Player {
         this.fighter_points = fighter_points;
         this.trader_points = trader_points;
         this.credits = 1000;
+        this.region = new FreshmanDorms();
     }
 
     public String getName() {
@@ -64,6 +66,10 @@ public class Player {
     public void setCredits(int credits) {
         this.credits = credits;
     }
+
+    public Region getRegion() { return region; }
+
+    public void setRegion(Region region) { this.region = region; }
 
     @Override
     public String toString() {
