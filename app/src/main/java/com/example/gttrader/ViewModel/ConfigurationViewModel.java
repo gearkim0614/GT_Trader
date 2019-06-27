@@ -15,6 +15,8 @@ import com.example.gttrader.Entity.TechTower;
 
 
 public class ConfigurationViewModel {
+    //private double price;
+
     public static boolean addUpToSixteen(int pilot, int engineer, int fighter, int trader) {
         return (pilot + engineer + fighter + trader == 16);
     }
@@ -61,6 +63,10 @@ public class ConfigurationViewModel {
         + "\n" + northAveDinning + "\n" + studentCenter + "\n" + techSquare + "\n" + techTower);
 
     }
+
+//    public double calculatePrice() {
+//
+//    }
 
 
 }
