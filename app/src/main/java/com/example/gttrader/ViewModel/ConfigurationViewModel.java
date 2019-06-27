@@ -19,9 +19,28 @@ public class ConfigurationViewModel {
         return (pilot + engineer + fighter + trader == 16);
     }
 
-    public static void initNewPlayer(int pilot, int engineer, int fighter, int trader, String name) {
+    public static void initializer(int pilot, int engineer, int fighter, int trader, String name) {
         Player player = new Player(name, pilot, engineer, fighter, trader);
         System.out.println(player);
+
+
+        BobbyDodd bobby_dodd = new BobbyDodd();
+        COC coc = new COC();
+        CRC crc = new CRC();
+        CULC culc = new CULC();
+        FreshmanDorms freshmanDorms = new FreshmanDorms();
+        GreekHouses greekHouses = new GreekHouses();
+        NorthAveDinning northAveDinning = new NorthAveDinning();
+        StudentCenter studentCenter = new StudentCenter();
+        TechSquare techSquare = new TechSquare();
+        TechTower techTower = new TechTower();
+
+        player.setRegion(freshmanDorms);
+
+
+        System.out.println(bobby_dodd + "\n" + coc + "\n" + crc + "\n" + culc + "\n" + freshmanDorms + "\n" + greekHouses
+                + "\n" + northAveDinning + "\n" + studentCenter + "\n" + techSquare + "\n" + techTower);
+
     }
 
     public static void makeRegions() {
@@ -36,8 +55,12 @@ public class ConfigurationViewModel {
         TechSquare techSquare = new TechSquare();
         TechTower techTower = new TechTower();
 
+
+
         System.out.println(bobby_dodd + "\n" + coc + "\n" + crc + "\n" + culc + "\n" + freshmanDorms + "\n" + greekHouses
         + "\n" + northAveDinning + "\n" + studentCenter + "\n" + techSquare + "\n" + techTower);
 
     }
+
+
 }
