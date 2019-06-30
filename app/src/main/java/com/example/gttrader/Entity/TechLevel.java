@@ -1,21 +1,22 @@
 package com.example.gttrader.Entity;
 
 public enum TechLevel {
-    PREAGRICULTURE ("Pre-Agriculture"),
-    MEDIEVAL("Medieval"),
-    RENAISSANCE("Renaissance"),
-    EARLYINDUSTRIAL("Early Industrial"),
-    INDUSTRIAL("Industrial"),
-    POSTINDISTRIAL("Post-Industrial"),
-    HITECH("Hi-Tech");
+    PREAGRICULTURE (0),
+    MEDIEVAL(1),
+    RENAISSANCE(2),
+    EARLYINDUSTRIAL(3),
+    INDUSTRIAL(4),
+    POSTINDISTRIAL(5),
+    HITECH(6);
 
-    private String name;
+    private int level;
 
-    TechLevel(String name) {
-        this.name = name;
+    TechLevel(int level) {
+
+        this.level = level;
     }
 
-    public String getName() {
-        return name;
+    public int getLevel() {
+        return level;
     }
 }

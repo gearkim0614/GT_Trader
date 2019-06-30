@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     Button start_button;
     Button quit_button;
 
+    private ConfigurationViewModel configuration = new ConfigurationViewModel();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 else {
-                    ConfigurationViewModel.initializer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
+                    configuration.initializer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
                     //ConfigurationViewModel.makeRegions();
                     //ConfigurationViewModel.initNewPlayer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
                     startActivity(new Intent(MainActivity.this, Main2Activity.class));

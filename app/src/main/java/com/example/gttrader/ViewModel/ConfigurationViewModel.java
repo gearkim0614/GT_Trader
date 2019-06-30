@@ -13,16 +13,18 @@ import com.example.gttrader.Entity.StudentCenter;
 import com.example.gttrader.Entity.TechSquare;
 import com.example.gttrader.Entity.TechTower;
 
+import com.example.gttrader.Entity.Universe;
 
 public class ConfigurationViewModel {
-    //private double price;
+    private Universe universe = Universe.getUniverse();
+    private Player player;
 
     public static boolean addUpToSixteen(int pilot, int engineer, int fighter, int trader) {
         return (pilot + engineer + fighter + trader == 16);
     }
 
-    public static void initializer(int pilot, int engineer, int fighter, int trader, String name) {
-        Player player = new Player(name, pilot, engineer, fighter, trader);
+    public void initializer(int pilot, int engineer, int fighter, int trader, String name) {
+        player = new Player(name, pilot, engineer, fighter, trader);
         System.out.println(player);
 
 
@@ -38,6 +40,9 @@ public class ConfigurationViewModel {
         TechTower techTower = new TechTower();
 
         player.setRegion(freshmanDorms);
+
+        universe.setPlayer(player);
+
 
 
         System.out.println(bobby_dodd + "\n" + coc + "\n" + crc + "\n" + culc + "\n" + freshmanDorms + "\n" + greekHouses
@@ -64,8 +69,9 @@ public class ConfigurationViewModel {
 
     }
 
-//    public double calculatePrice() {
-//
+
+//    public static Player getPlayer() {
+//        return player;
 //    }
 
 

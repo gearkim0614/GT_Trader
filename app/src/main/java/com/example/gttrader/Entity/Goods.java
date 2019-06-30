@@ -1,4 +1,5 @@
 package com.example.gttrader.Entity;
+import java.util.Random;
 
 public class Goods {
     protected String name;
@@ -137,19 +138,15 @@ public class Goods {
         this.MTH = MTH;
     }
 
-    //    public double getPrice() {
-//        return price;
-//    }
-//
-//    public void setPrice(double price) {
-//        this.price = price;
-//    }
-//
-//    public int getQuantity() {
-//        return quantity;
-//    }
-//
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
+    public double variance() {
+        Random rand = new Random();
+        int n = rand.nextInt(var);
+        double var_price = (double) basePrice * (1 + (n * 0.01));
+        return var_price;
+    }
+
+    public double market_price() {
+        return variance() + basePrice + (priceIncreasePerLevel * (techLevelProduceMost - minTechLevelProduce));
+    }
+
 }

@@ -1,12 +1,21 @@
 package com.example.gttrader.Entity;
+import java.util.Random;
 
 public class Machines extends Goods {
-    public Machines(String name, int minTechLevelProduce, int minTechLevelUse,
-                    int techLevelProduceMost, double basePrice, int priceIncreasePerLevel, int var,
-                    PriceIncreaseEvent priceIncreaseEvent,
-                    Resource lowPriceCondition,
-                    Resource highPriceCondition,
-                    double MTL, double MTH) {
+    public Machines() {
         super("Machine", 4,3,5,500,-30,5,PriceIncreaseEvent.STRIKE,null,null,600,2000);
+    }
+
+    public boolean equals(Goods other) {
+        if (other == this) {
+            return true;
+        } else if (!(other instanceof Machines)) {
+            return false;
+        } return true;
+
+    }
+
+    public int hashCode() {
+        return 5;
     }
 }
