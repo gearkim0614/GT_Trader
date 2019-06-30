@@ -14,6 +14,7 @@ public class Main2Activity extends AppCompatActivity {
 
     Button buyGoods;
     Button sellGoods;
+    Button viewCargo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         buyGoods = findViewById(R.id.buyGoods);
         sellGoods = findViewById(R.id.sellGoods);
+        viewCargo = findViewById(R.id.see_cargo);
 
         buyGoods.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
@@ -33,6 +35,13 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) { // button clicked
                 startActivity(new Intent(Main2Activity.this, SellMarketplaceActivity.class));
 
+            }
+        });
+
+
+        viewCargo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { // button clicked
+                startActivity(new Intent(Main2Activity.this, ViewCargoHoldActivity.class));
             }
         });
     }

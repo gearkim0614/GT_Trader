@@ -6,8 +6,9 @@ public class Player {
     private int engineer_points;
     private int fighter_points;
     private int trader_points;
-    private int credits;
+    private double credits;
     private Region region;
+    private Scooter scooter;
 
     public Player(String name, int pilot_points, int engineer_points, int fighter_points, int trader_points) {
         this.name = name;
@@ -17,6 +18,7 @@ public class Player {
         this.trader_points = trader_points;
         this.credits = 1000;
         this.region = new FreshmanDorms();
+        this.scooter = new Scooter();
     }
 
     public String getName() {
@@ -59,11 +61,11 @@ public class Player {
         this.trader_points = trader_pointers;
     }
 
-    public int getCredits() {
+    public double getCredits() {
         return credits;
     }
 
-    public void setCredits(int credits) {
+    public void setCredits(double credits) {
         this.credits = credits;
     }
 
@@ -71,9 +73,25 @@ public class Player {
 
     public void setRegion(Region region) { this.region = region; }
 
+    public void setScooter(Scooter scooter) { this.scooter = scooter; }
+
+    public Scooter getScooter() { return scooter; }
+
+    public boolean buyGood(Goods good) {
+        double price = good.market_price();
+        if (credits >= price) {
+            boolean bought = scooter.addToHold(good);
+            if (bought) {
+                credits = credits - price;
+            }
+            return bought;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
-        return String.format("Player: %s, Credits: %d, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
+        return String.format("Player: %s, Credits: %f, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
                 name, credits, pilot_points, engineer_points,fighter_points, trader_points);
     }
 }

@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.SellMarketplaceActivity"></activity>
+        <activity android:name=".View.ViewCargoHoldActivity"></activity>
+        <activity android:name=".View.SellMarketplaceActivity" />
         <activity android:name=".View.BuyMarketplaceActivity" />
         <activity android:name=".View.Main2Activity" />
         <!--
