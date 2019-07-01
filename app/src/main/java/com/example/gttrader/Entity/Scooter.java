@@ -15,6 +15,9 @@ public class Scooter {
         this.scooter_hold = new HashMap<Integer, Integer>();
         this.MAXCAPACITY = 5;
         this.current_capacity = 0;
+        for (int i = 1; i < 11; i++) {
+            scooter_hold.put(i, 0);
+        }
     }
 
     /**
