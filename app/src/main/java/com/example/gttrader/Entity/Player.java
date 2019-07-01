@@ -89,6 +89,16 @@ public class Player {
         return false;
     }
 
+    public void sellGood(Goods good) {
+        if (scooter.getScooter_hold().containsKey(good.hashCode())) {
+            double price = good.market_price();
+            boolean sold = scooter.removeFromHold2(good);
+            if (sold) {
+                credits = credits + price - 10.0;
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return String.format("Player: %s, Credits: %f, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
