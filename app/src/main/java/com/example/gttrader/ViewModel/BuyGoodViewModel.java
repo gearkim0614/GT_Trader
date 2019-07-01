@@ -24,5 +24,10 @@ public class BuyGoodViewModel {
         System.out.println(player.getScooter().getScooter_hold());
     }
 
+    public void sellGood(Goods good) {
+        Player player = universe.getPlayer();
+        player.sellGood(good);
+    }
+
 
 }

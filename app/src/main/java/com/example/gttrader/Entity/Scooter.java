@@ -54,6 +54,17 @@ public class Scooter {
         }
     }
 
+    public boolean removeFromHold2(Goods itemToRemove) {
+        if (scooter_hold.containsKey(itemToRemove.hashCode())) {
+            if (scooter_hold.get(itemToRemove.hashCode()) > 0) {
+                scooter_hold.put(itemToRemove.hashCode(), scooter_hold.get(itemToRemove.hashCode()) - 1);
+                current_capacity--;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Map<Integer, Integer> getScooter_hold() {
         return scooter_hold;
     }
