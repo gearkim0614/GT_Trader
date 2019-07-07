@@ -2,9 +2,11 @@ package com.example.gttrader.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gttrader.Entity.Building;
 import com.example.gttrader.R;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.Button;
@@ -24,7 +26,7 @@ import com.example.gttrader.Entity.Robots;
 import com.example.gttrader.Entity.Water;
 import com.example.gttrader.Entity.Universe;
 import com.example.gttrader.Entity.Player;
-import com.example.gttrader.Entity.Region;
+//import com.example.gttrader.Entity.Region;
 
 import java.util.HashMap;
 
@@ -118,9 +120,16 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
 
         credit = findViewById(R.id.credit);
         credit.setText("Credit: $" + player.getCredits());
+//
+//        Region region = universe.getPlayer().getRegion();
+//        int techLevel = region.getTechLevel().getLevel();
 
-        Region region = universe.getPlayer().getRegion();
-        int techLevel = region.getTechLevel().getLevel();
+//        Building building = universe.getPlayer().getBuilding();
+//        int techLevel = Building.FreshmanDorms.getTechLevel().getLevel();
+
+        int techLevel = universe.getPlayer().getBuilding().getTechLevel().getLevel();
+
+
 
         final Water water = new Water();
         if (water.getMinTechLevelProduce() > techLevel) {
