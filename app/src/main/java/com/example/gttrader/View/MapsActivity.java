@@ -2,8 +2,12 @@ package com.example.gttrader.View;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
+import android.util.Log;
+
 import android.os.Bundle;
 
+import com.example.gttrader.Entity.Building;
 import com.example.gttrader.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,6 +15,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Marker;
 
 //API Key: AIzaSyDCe70F3e0YF1HxZsh3LbV1WHhdbEicxpw
 
@@ -43,9 +48,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+//        // Add a marker in Sydney and move the camera
+//        LatLng sydney = new LatLng(-34, 151);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng CoC = new LatLng(33.7774, -84.3973);
+        mMap.addMarker(new MarkerOptions().position(CoC).title("Marker in CoC"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CoC, 15));
+
+
+        for (Building location: Building.values()) {
+
+
+            Log.d("TAG", "WATCHME");
+            Log.d("TAG!!", location.getName());
+            LatLng marker = new LatLng(location.getLatitude(), location.getLongitude());
+            Marker marker1 = mMap.addMarker(new MarkerOptions().position(marker).title(location.getName()));
+            marker1.setTag(location.getName());
+        }
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                intent.putExtra("nameOfPlace", marker.getTag().toString());
+                startActivity(intent);
+                return false;
+            }
+        });
     }
 }

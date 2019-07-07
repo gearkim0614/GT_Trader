@@ -94,7 +94,7 @@ public class Player {
             double price = good.market_price();
             boolean sold = scooter.removeFromHold2(good);
             if (sold) {
-                credits = credits + price - 10.0;
+                credits = credits + price /*- 10.0*/; // why is this -10?? -gear
             }
         }
     }

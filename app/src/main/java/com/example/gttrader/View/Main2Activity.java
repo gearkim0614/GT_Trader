@@ -10,11 +10,14 @@ import com.example.gttrader.R;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Map;
+
 public class Main2Activity extends AppCompatActivity {
 
     Button buyGoods;
     Button sellGoods;
     Button viewCargo;
+    Button map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class Main2Activity extends AppCompatActivity {
         buyGoods = findViewById(R.id.buyGoods);
         sellGoods = findViewById(R.id.sellGoods);
         viewCargo = findViewById(R.id.see_cargo);
+        map = findViewById(R.id.map);
 
         buyGoods.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
@@ -44,5 +48,14 @@ public class Main2Activity extends AppCompatActivity {
                 startActivity(new Intent(Main2Activity.this, ViewCargoHoldActivity.class));
             }
         });
+
+        map.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { // button clicked
+                startActivity(new Intent(Main2Activity.this, MapsActivity.class));
+
+            }
+        });
     }
+
+
 }
