@@ -7,7 +7,7 @@ public class Player {
     private int fighter_points;
     private int trader_points;
     private double credits;
-    private Region region;
+    private Building building;
     private Scooter scooter;
 
     public Player(String name, int pilot_points, int engineer_points, int fighter_points, int trader_points) {
@@ -17,7 +17,7 @@ public class Player {
         this.fighter_points = fighter_points;
         this.trader_points = trader_points;
         this.credits = 1000;
-        this.region = new FreshmanDorms();
+        this.building = Building.FreshmanDorms;
         this.scooter = new Scooter();
     }
 
@@ -69,9 +69,9 @@ public class Player {
         this.credits = credits;
     }
 
-    public Region getRegion() { return region; }
+    //public Region getRegion() { return region; }
 
-    public void setRegion(Region region) { this.region = region; }
+    //public void setRegion(Region region) { this.region = region; }
 
     public void setScooter(Scooter scooter) { this.scooter = scooter; }
 
@@ -82,7 +82,7 @@ public class Player {
         if (credits >= price) {
             boolean bought = scooter.addToHold(good);
             if (bought) {
-                credits = credits - price;
+                credits = credits - price;//The price generated randomly? doesn't match front and back end
             }
             return bought;
         }
@@ -99,9 +99,31 @@ public class Player {
         }
     }
 
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
+
     @Override
     public String toString() {
-        return String.format("Player: %s, Credits: %f, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
-                name, credits, pilot_points, engineer_points,fighter_points, trader_points);
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", pilot_points=" + pilot_points +
+                ", engineer_points=" + engineer_points +
+                ", fighter_points=" + fighter_points +
+                ", trader_points=" + trader_points +
+                ", credits=" + credits +
+                ", building=" + building +
+                ", scooter=" + scooter +
+                '}';
     }
+
+    //    @Override
+//    public String toString() {
+//        return String.format("Player: %s, Credits: %f, Pilot Points: %d, Engineer Points: %d, Fighter Points: %d, Trader Points: %d",
+//                name, credits, pilot_points, engineer_points,fighter_points, trader_points);
+//    }
 }

@@ -1,17 +1,9 @@
 package com.example.gttrader.ViewModel;
-import com.example.gttrader.Entity.BobbyDodd;
-import com.example.gttrader.Entity.COC;
-import com.example.gttrader.Entity.CRC;
-import com.example.gttrader.Entity.CULC;
+import com.example.gttrader.Entity.Building;
 import com.example.gttrader.Entity.DifficultyLevel;
-import com.example.gttrader.Entity.FreshmanDorms;
-import com.example.gttrader.Entity.GreekHouses;
-import com.example.gttrader.Entity.NorthAveDinning;
 import com.example.gttrader.Entity.Ore;
 import com.example.gttrader.Entity.Player;
-import com.example.gttrader.Entity.StudentCenter;
-import com.example.gttrader.Entity.TechSquare;
-import com.example.gttrader.Entity.TechTower;
+
 
 import com.example.gttrader.Entity.Universe;
 
@@ -28,44 +20,41 @@ public class ConfigurationViewModel {
         System.out.println(player);
 
 
-        BobbyDodd bobby_dodd = new BobbyDodd();
-        COC coc = new COC();
-        CRC crc = new CRC();
-        CULC culc = new CULC();
-        FreshmanDorms freshmanDorms = new FreshmanDorms();
-        GreekHouses greekHouses = new GreekHouses();
-        NorthAveDinning northAveDinning = new NorthAveDinning();
-        StudentCenter studentCenter = new StudentCenter();
-        TechSquare techSquare = new TechSquare();
-        TechTower techTower = new TechTower();
+        //Building building = new Building();
+//        BobbyDodd bobby_dodd = new BobbyDodd();
+//        COC coc = new COC();
+//        CRC crc = new CRC();
+//        CULC culc = new CULC();
+//        FreshmanDorms freshmanDorms = new FreshmanDorms();
+//        GreekHouses greekHouses = new GreekHouses();
+//        NorthAveDinning northAveDinning = new NorthAveDinning();
+//        StudentCenter studentCenter = new StudentCenter();
+//        TechSquare techSquare = new TechSquare();
+//        TechTower techTower = new TechTower();
 
-        player.setRegion(freshmanDorms);
-
+        player.setBuilding(Building.FreshmanDorms);
         universe.setPlayer(player);
-
-
-
-        System.out.println(bobby_dodd + "\n" + coc + "\n" + crc + "\n" + culc + "\n" + freshmanDorms + "\n" + greekHouses
-                + "\n" + northAveDinning + "\n" + studentCenter + "\n" + techSquare + "\n" + techTower);
+        System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
+                + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
 
     }
 
     public static void makeRegions() {
-        BobbyDodd bobby_dodd = new BobbyDodd();
-        COC coc = new COC();
-        CRC crc = new CRC();
-        CULC culc = new CULC();
-        FreshmanDorms freshmanDorms = new FreshmanDorms();
-        GreekHouses greekHouses = new GreekHouses();
-        NorthAveDinning northAveDinning = new NorthAveDinning();
-        StudentCenter studentCenter = new StudentCenter();
-        TechSquare techSquare = new TechSquare();
-        TechTower techTower = new TechTower();
+//        BobbyDodd bobby_dodd = new BobbyDodd();
+//        COC coc = new COC();
+//        CRC crc = new CRC();
+//        CULC culc = new CULC();
+//        FreshmanDorms freshmanDorms = new FreshmanDorms();
+//        GreekHouses greekHouses = new GreekHouses();
+//        NorthAveDinning northAveDinning = new NorthAveDinning();
+//        StudentCenter studentCenter = new StudentCenter();
+//        TechSquare techSquare = new TechSquare();
+//        TechTower techTower = new TechTower();
 
 
 
-        System.out.println(bobby_dodd + "\n" + coc + "\n" + crc + "\n" + culc + "\n" + freshmanDorms + "\n" + greekHouses
-        + "\n" + northAveDinning + "\n" + studentCenter + "\n" + techSquare + "\n" + techTower);
+        System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
+        + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
 
     }
 

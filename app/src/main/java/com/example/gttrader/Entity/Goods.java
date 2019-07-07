@@ -141,7 +141,7 @@ public class Goods {
     public double variance() {
         Random rand = new Random();
         int n = rand.nextInt(var);
-        double var_price = (double) basePrice * (1 + (n * 0.01));
+        double var_price = basePrice * (1 + (((double) n) * 0.01));
         return var_price;
     }
 
