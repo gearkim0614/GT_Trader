@@ -19,7 +19,7 @@ path to where you want to save
 
 4.) git checkout (enter branch)
 
-5.) git add (File name here)
+5.) git add (File name here) PLEASE DO NOT ADD ALL
 
 6.) git commit -m "Message here".
 
