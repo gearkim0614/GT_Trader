@@ -16,6 +16,7 @@ public class Goods {
     protected Resource highPriceCondition;
     protected double MTL;
     protected double MTH;
+    private double variance;
 
     public Goods(String name, int minTechLevelProduce, int minTechLevelUse,
                  int techLevelProduceMost, double basePrice, int priceIncreasePerLevel, int var,
@@ -37,6 +38,7 @@ public class Goods {
         this.priceIncreaseEvent = priceIncreaseEvent;
         this.MTL = MTL;
         this.MTH = MTH;
+        variance = variance();
         }
 
     public Goods(String name, double price, int quantity) {
@@ -146,7 +148,7 @@ public class Goods {
     }
 
     public double market_price() {
-        return variance() + basePrice + (priceIncreasePerLevel * (techLevelProduceMost - minTechLevelProduce));
+        return variance + basePrice + (priceIncreasePerLevel * (techLevelProduceMost - minTechLevelProduce));
     }
 
 }
