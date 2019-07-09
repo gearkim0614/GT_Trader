@@ -5,17 +5,17 @@ public class Goods {
     protected String name;
     //protected double price;
     //protected int quantity;
-    protected int minTechLevelProduce;
-    protected int minTechLevelUse;
-    protected int techLevelProduceMost;
-    protected double basePrice;
-    protected int priceIncreasePerLevel;
-    protected int var;
-    protected PriceIncreaseEvent priceIncreaseEvent;
-    protected Resource lowPriceCondition;
-    protected Resource highPriceCondition;
-    protected double MTL;
-    protected double MTH;
+    private int minTechLevelProduce;
+    private int minTechLevelUse;
+    private int techLevelProduceMost;
+    private double basePrice;
+    private int priceIncreasePerLevel;
+    private int var;
+    private PriceIncreaseEvent priceIncreaseEvent;
+    private Resource lowPriceCondition;
+    private Resource highPriceCondition;
+    private double MTL;
+    private double MTH;
     private double variance;
 
     public Goods(String name, int minTechLevelProduce, int minTechLevelUse,
@@ -140,7 +140,7 @@ public class Goods {
         this.MTH = MTH;
     }
 
-    public double variance() {
+    private double variance() {
         Random rand = new Random();
         int n = rand.nextInt(var);
         double var_price = basePrice * (1 + (((double) n) * 0.01));

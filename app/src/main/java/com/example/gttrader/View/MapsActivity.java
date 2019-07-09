@@ -57,13 +57,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng CoC = new LatLng(33.7774, -84.3973);
         mMap.addMarker(new MarkerOptions().position(CoC).title("Marker in CoC"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CoC, 15));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(CoC));
 
 
         for (Building location: Building.values()) {
 
 
-            Log.d("TAG", "WATCHME");
-            Log.d("TAG!!", location.getName());
+            Log.i("TAG", "WATCHME");
+            Log.i("TAG!!", location.getName());
             LatLng marker = new LatLng(location.getLatitude(), location.getLongitude());
             Marker marker1 = mMap.addMarker(new MarkerOptions().position(marker).title(location.getName()));
             marker1.setTag(location.getName());
