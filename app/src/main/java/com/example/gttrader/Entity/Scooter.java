@@ -8,6 +8,7 @@ public class Scooter {
     private Map<Integer, Integer> scooter_hold;
     private final int MAXCAPACITY;
     private int current_capacity;
+    private static double batteryLife;
 
 
     public Scooter() {
@@ -18,6 +19,7 @@ public class Scooter {
         for (int i = 1; i < 11; i++) {
             scooter_hold.put(i, 0);
         }
+        this.batteryLife = 100;
     }
 
     /**
@@ -76,6 +78,13 @@ public class Scooter {
         this.scooter_hold = scooter_hold;
     }
 
+    public double getBatteryLife() {
+        return batteryLife;
+    }
+
+    public void setBatteryLife(double batteryLife) {
+        this.batteryLife = batteryLife;
+    }
 
     public ArrayList<String> holdToList() {
         ArrayList<String> cargoList = new ArrayList<>();

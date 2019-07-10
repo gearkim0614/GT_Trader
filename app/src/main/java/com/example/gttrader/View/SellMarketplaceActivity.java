@@ -5,17 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gttrader.Entity.Building;
 import com.example.gttrader.R;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
+
 import android.widget.ImageButton;
-import android.widget.Button;
-import android.view.View.OnClickListener;
-import android.view.View;
 import android.widget.TextView;
 import com.example.gttrader.ViewModel.BuyGoodViewModel;
 import com.example.gttrader.Entity.Firearms;
@@ -28,12 +22,8 @@ import com.example.gttrader.Entity.Narcotics;
 import com.example.gttrader.Entity.Ore;
 import com.example.gttrader.Entity.Robots;
 import com.example.gttrader.Entity.Water;
-import com.example.gttrader.Entity.Goods;
 import com.example.gttrader.Entity.Universe;
 import com.example.gttrader.Entity.Player;
-import com.example.gttrader.ViewModel.ConfigurationViewModel;
-import com.example.gttrader.Entity.Building;
-import com.example.gttrader.R;
 
 import java.util.HashMap;
 
@@ -61,8 +51,6 @@ public class SellMarketplaceActivity extends AppCompatActivity {
     TextView narcotics_price;
     TextView medicine_price;
     TextView firearms_price;
-
-
     TextView fur_quantity;
     TextView machines_quantity;
     TextView water_quantity;
@@ -88,7 +76,7 @@ public class SellMarketplaceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell_marketplace);
-        back = findViewById(R.id.back_button);
+        back = findViewById(R.id.TravelBack);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
@@ -129,7 +117,7 @@ public class SellMarketplaceActivity extends AppCompatActivity {
         ore_price = findViewById(R.id.ore_price);
         games_price = findViewById(R.id.games_price);
 
-        back = findViewById(R.id.back_button);
+        back = findViewById(R.id.TravelBack);
 
         credit = findViewById(R.id.credit);
         credit.setText("Credit: $" + player.getCredits());

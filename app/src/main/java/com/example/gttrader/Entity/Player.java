@@ -9,6 +9,7 @@ public class Player {
     private double credits;
     private Building building;
     private Scooter scooter;
+    private Building nextBuilding;
 
     public Player(String name, int pilot_points, int engineer_points, int fighter_points, int trader_points) {
         this.name = name;
@@ -105,6 +106,15 @@ public class Player {
 
     public void setBuilding(Building building) {
         this.building = building;
+    }
+
+    public void setNextLocation(Building building) {
+        this.nextBuilding = building;
+
+    }
+
+    public Building getNextBuilding() {
+        return nextBuilding;
     }
 
     @Override
