@@ -2,11 +2,9 @@ package com.example.gttrader.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gttrader.Entity.Building;
 import com.example.gttrader.R;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.Button;
@@ -116,7 +114,7 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         ore_price = findViewById(R.id.ore_price);
         games_price = findViewById(R.id.games_price);
 
-        back = findViewById(R.id.back_button);
+        back = findViewById(R.id.TravelBack);
 
         credit = findViewById(R.id.credit);
         credit.setText("Credit: $" + player.getCredits());

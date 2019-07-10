@@ -1,22 +1,23 @@
 package com.example.gttrader.Entity;
 import java.util.Random;
-
+import com.example.gttrader.View.TravelActivity;
+import com.example.gttrader.Entity.Building;
+import com.example.gttrader.Entity.TechLevel;
 public class Goods {
     protected String name;
-    //protected double price;
-    //protected int quantity;
-    protected int minTechLevelProduce;
-    protected int minTechLevelUse;
-    protected int techLevelProduceMost;
-    protected double basePrice;
-    protected int priceIncreasePerLevel;
-    protected int var;
-    protected PriceIncreaseEvent priceIncreaseEvent;
-    protected Resource lowPriceCondition;
-    protected Resource highPriceCondition;
-    protected double MTL;
-    protected double MTH;
+    private int minTechLevelProduce;
+    private int minTechLevelUse;
+    private int techLevelProduceMost;
+    private double basePrice;
+    private int priceIncreasePerLevel;
+    private int var;
+    private PriceIncreaseEvent priceIncreaseEvent;
+    private Resource lowPriceCondition;
+    private Resource highPriceCondition;
+    private double MTL;
+    private double MTH;
     private double variance;
+    private double inflation = 0.1;
 
     public Goods(String name, int minTechLevelProduce, int minTechLevelUse,
                  int techLevelProduceMost, double basePrice, int priceIncreasePerLevel, int var,
@@ -25,8 +26,6 @@ public class Goods {
                  Resource highPriceCondition,
                  double MTL, double MTH) {
         this.name = name;
-        //this.price = price;
-        //this.quantity = quantity;
         this.minTechLevelProduce = minTechLevelProduce;
         this.minTechLevelUse = minTechLevelUse;
         this.techLevelProduceMost = techLevelProduceMost;
@@ -132,15 +131,11 @@ public class Goods {
         this.MTL = MTL;
     }
 
-    public double getMTH() {
-        return MTH;
-    }
+    public double getInflation() { return inflation; }
 
-    public void setMTH(double MTH) {
-        this.MTH = MTH;
-    }
+    public void setInflation(double inflation) { this.inflation = inflation;}
 
-    public double variance() {
+    private double variance() {
         Random rand = new Random();
         int n = rand.nextInt(var);
         double var_price = basePrice * (1 + (((double) n) * 0.01));

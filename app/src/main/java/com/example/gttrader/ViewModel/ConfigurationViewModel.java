@@ -19,19 +19,6 @@ public class ConfigurationViewModel {
         player = new Player(name, pilot, engineer, fighter, trader);
         System.out.println(player);
 
-
-        //Building building = new Building();
-//        BobbyDodd bobby_dodd = new BobbyDodd();
-//        COC coc = new COC();
-//        CRC crc = new CRC();
-//        CULC culc = new CULC();
-//        FreshmanDorms freshmanDorms = new FreshmanDorms();
-//        GreekHouses greekHouses = new GreekHouses();
-//        NorthAveDinning northAveDinning = new NorthAveDinning();
-//        StudentCenter studentCenter = new StudentCenter();
-//        TechSquare techSquare = new TechSquare();
-//        TechTower techTower = new TechTower();
-
         player.setBuilding(Building.FreshmanDorms);
         universe.setPlayer(player);
         System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
@@ -40,18 +27,6 @@ public class ConfigurationViewModel {
     }
 
     public static void makeRegions() {
-//        BobbyDodd bobby_dodd = new BobbyDodd();
-//        COC coc = new COC();
-//        CRC crc = new CRC();
-//        CULC culc = new CULC();
-//        FreshmanDorms freshmanDorms = new FreshmanDorms();
-//        GreekHouses greekHouses = new GreekHouses();
-//        NorthAveDinning northAveDinning = new NorthAveDinning();
-//        StudentCenter studentCenter = new StudentCenter();
-//        TechSquare techSquare = new TechSquare();
-//        TechTower techTower = new TechTower();
-
-
 
         System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
         + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);

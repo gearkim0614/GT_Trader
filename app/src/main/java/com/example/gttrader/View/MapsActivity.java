@@ -8,6 +8,8 @@ import android.util.Log;
 import android.os.Bundle;
 
 import com.example.gttrader.Entity.Building;
+import com.example.gttrader.Entity.Universe;
+import com.example.gttrader.Entity.Player;
 import com.example.gttrader.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,6 +22,8 @@ import com.google.android.gms.maps.model.Marker;
 //API Key: AIzaSyDCe70F3e0YF1HxZsh3LbV1WHhdbEicxpw
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    private Universe universe = Universe.getUniverse();
 
     private GoogleMap mMap;
 
@@ -55,27 +59,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng CoC = new LatLng(33.7774, -84.3973);
-        mMap.addMarker(new MarkerOptions().position(CoC).title("Marker in CoC"));
+        //mMap.addMarker(new MarkerOptions().position(CoC).title("Marker in CoC"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CoC, 15));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(CoC));
 
 
         for (Building location: Building.values()) {
 
 
-            Log.d("TAG", "WATCHME");
-            Log.d("TAG!!", location.getName());
+            Log.i("TAG", "WATCHME");
+            Log.i("TAG!!", location.getName());
             LatLng marker = new LatLng(location.getLatitude(), location.getLongitude());
             Marker marker1 = mMap.addMarker(new MarkerOptions().position(marker).title(location.getName()));
+//            mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title(location.getName())).showInfoWindow();
             marker1.setTag(location.getName());
         }
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+//                universe.getPlayer().setNextLocation();
+                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
                 intent.putExtra("nameOfPlace", marker.getTag().toString());
                 startActivity(intent);
                 return false;
+
             }
         });
     }
