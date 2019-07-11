@@ -7,7 +7,7 @@ public enum Building {
     COC("CollegeOfComputing", 33.7774, -84.3973, Resource.LIFELESS, TechLevel.HITECH, 0.06),
     CRC("CRC", 33.775627, -84.403491, Resource.LOTSOFWATER, TechLevel.INDUSTRIAL, 0.10),
     CULC("CULC", 33.7749, -84.3964, Resource.MINERALPOOR, TechLevel.POSTINDISTRIAL, 0.14),
-    FreshmanDorms("FreshmanDorms", 33.775627, -84.403491, Resource.WEIRDMUSHROOMS, TechLevel.MEDIEVAL, 0.08),
+    FreshmanDorms("FreshmanDorms", 33.773412, -84.391609, Resource.WEIRDMUSHROOMS, TechLevel.MEDIEVAL, 0.08),
     GreekHouses("GreekHouses", 33.776669, -84.392986, Resource.WARLIKE, TechLevel.INDUSTRIAL, 0.10),
     NorthAveDinning("North Ave Dining", 33.771011, -84.391409, Resource.LOTSOFHERBS, TechLevel.RENAISSANCE, 0.11),
     StudentCenter("StudentCenter", 33.773887, -84.398766, Resource.NOSPECIALRESOURCES, TechLevel.EARLYINDUSTRIAL, 0.15),
