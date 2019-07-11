@@ -83,7 +83,8 @@ public class Player {
         if (credits >= price) {
             boolean bought = scooter.addToHold(good);
             if (bought) {
-                credits = credits - price;//The price generated randomly? doesn't match front and back end
+                credits = Math.round((credits - price) * 100.00)/100.00;//The price generated randomly? doesn't match front and back end
+
             }
             return bought;
         }
@@ -95,7 +96,7 @@ public class Player {
             double price = good.market_price();
             boolean sold = scooter.removeFromHold2(good);
             if (sold) {
-                credits = credits + price /*- 10.0*/; // why is this -10?? -gear
+                credits = Math.round((credits + price) * 100.00)/100.00;
             }
         }
     }

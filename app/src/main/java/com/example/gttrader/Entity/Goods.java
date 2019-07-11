@@ -1,8 +1,10 @@
 package com.example.gttrader.Entity;
-import java.util.Random;
-import com.example.gttrader.View.TravelActivity;
 import com.example.gttrader.Entity.Building;
-import com.example.gttrader.Entity.TechLevel;
+import com.example.gttrader.Entity.Universe;
+import com.example.gttrader.Entity.Player;
+
+import java.util.Random;
+
 public class Goods {
     protected String name;
     private int minTechLevelProduce;
@@ -18,6 +20,9 @@ public class Goods {
     private double MTH;
     private double variance;
     private double inflation = 0.1;
+    private Building location;
+    private Universe universe = Universe.getUniverse();
+    private Player player = universe.getPlayer();
 
     public Goods(String name, int minTechLevelProduce, int minTechLevelUse,
                  int techLevelProduceMost, double basePrice, int priceIncreasePerLevel, int var,
@@ -142,8 +147,19 @@ public class Goods {
         return var_price;
     }
 
+    public double locationPriceChange() {
+
+        double change;
+
+        change = player.getBuilding().getSalesTax();
+
+        return change;
+    }
+
     public double market_price() {
-        return variance + basePrice + (priceIncreasePerLevel * (techLevelProduceMost - minTechLevelProduce));
+        double input = variance + basePrice + (priceIncreasePerLevel * (techLevelProduceMost - minTechLevelProduce)) + locationPriceChange();
+        return Math.round(input * 100.0) / 100.0;
+        //return input;
     }
 
 }

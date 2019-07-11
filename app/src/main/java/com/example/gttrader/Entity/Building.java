@@ -15,11 +15,13 @@ public enum Building {
     TechTower("TechTower", 33.7724, -84.3947, Resource.ARTISTIC, TechLevel.MEDIEVAL,0.08),
     ;
 
+    public static Player player;
     private String name;
     private double latitude;
     private double longitude;
     private Resource resource;
     private TechLevel techLevel;
+    private double salesTax;
 
     Building(String name, double latitude, double longitude, Resource resource, TechLevel techLevel, double salesTax) {
         this.name = name;
@@ -27,6 +29,7 @@ public enum Building {
         this.longitude = longitude;
         this.resource = resource;
         this.techLevel = techLevel;
+        this.salesTax = salesTax;
     }
 
     public String getName() {
@@ -68,4 +71,16 @@ public enum Building {
     public void setTechLevel(TechLevel techLevel) {
         this.techLevel = techLevel;
     }
+
+    public void setSalesTax(double salesTax) {
+        this.salesTax = salesTax;
+    }
+
+    public double getSalesTax() {
+        return salesTax;
+    }
+
+
+
+
 }
