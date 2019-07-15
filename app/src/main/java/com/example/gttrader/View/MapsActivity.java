@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.util.Log;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.gttrader.Entity.Building;
 import com.example.gttrader.Entity.Universe;
 import com.example.gttrader.Entity.Player;
 import com.example.gttrader.R;
+import com.example.gttrader.ViewModel.TravelViewModel;
+import com.example.gttrader.ViewModel.ConfigurationViewModel;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,6 +29,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Universe universe = Universe.getUniverse();
 
     private GoogleMap mMap;
+
+    private TravelViewModel travelViewModel = new TravelViewModel();
+
+    private ConfigurationViewModel configurationViewModel = new ConfigurationViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +81,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public boolean onMarkerClick(Marker marker) {
 //                universe.getPlayer().setNextLocation();
-                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
-                intent.putExtra("nameOfPlace", marker.getTag().toString());
-                startActivity(intent);
-                return false;
+                if (travelViewModel.isHappening()) {
 
+                    Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+                    intent.putExtra("nameOfPlace", marker.getTag().toString());
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "You trigger " + travelViewModel.randomEventGetter() + " event!", Toast.LENGTH_LONG).show();
+                  //  configurationViewModel.robbed();
+                }
+                    //Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();//////***********
+                    Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+                    intent.putExtra("nameOfPlace", marker.getTag().toString());
+                    startActivity(intent);
+
+                return false;
             }
         });
+
     }
 }
