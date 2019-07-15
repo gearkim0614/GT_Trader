@@ -75,7 +75,7 @@ public class TravelActivity extends AppCompatActivity {
         goButton = findViewById(R.id.travel_button);
         batteryNeeded = travelViewModel.batteryNeeded(player.getBuilding(), location);
 
-        if (!can_travel || batteryNeeded == 0) {
+        if (!can_travel) {
             goButton.setEnabled(false);
         }
 

@@ -1,7 +1,15 @@
 package com.example.gttrader.Entity;
 
+import com.example.gttrader.ViewModel.ConfigurationViewModel;
+
 public class Universe {
-    private Player player;
+
+    private ConfigurationViewModel configurationViewModel = new ConfigurationViewModel();
+
+    private Player player = configurationViewModel.getPlayer();
+
+
+
 
     private static Universe universe = new Universe();
 

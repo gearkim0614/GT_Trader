@@ -7,6 +7,8 @@ import com.example.gttrader.Entity.Player;
 
 import com.example.gttrader.Entity.Universe;
 
+import java.util.Random;
+
 public class ConfigurationViewModel {
     private Universe universe = Universe.getUniverse();
     private Player player;
@@ -26,13 +28,23 @@ public class ConfigurationViewModel {
 
     }
 
-    public static void makeRegions() {
+//    public static void makeRegions() {
+//
+//        System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
+//        + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
+//
+//    }
 
-        System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
-        + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
+//    public double robbed () {
+//        Random ran = new Random();
+//        int money = ran.nextInt(50) + 100;
+//        player.setCredits(player.getCredits() - money);
+//        return player.getCredits();
+//    }
 
+    public Player getPlayer() {
+        return player;
     }
-
 
 //    public static Player getPlayer() {
 //        return player;
