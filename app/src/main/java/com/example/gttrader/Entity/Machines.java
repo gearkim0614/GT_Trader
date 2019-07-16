@@ -2,6 +2,9 @@ package com.example.gttrader.Entity;
 import java.util.Random;
 
 public class Machines extends Goods {
+    /**
+     * Method which creates the machines good
+     */
     public Machines() {
         super("Machine", 4,3,5,500,-30,5,PriceIncreaseEvent.STRIKE,null,null,600,2000);
     }
@@ -15,6 +18,10 @@ public class Machines extends Goods {
 
     }
 
+    /**
+     * Method which gets hashcode of good
+     * @return hashcode
+     */
     public int hashCode() {
         return 5;
     }

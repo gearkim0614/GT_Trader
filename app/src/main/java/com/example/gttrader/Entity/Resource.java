@@ -17,10 +17,18 @@ public enum Resource {
 
     private String name;
 
+    /**
+     * resource method for assigning name of resource
+     * @param name name of resource
+     */
     Resource(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter method for getting name of resource
+     * @return name of resource
+     */
     public String getName() {
         return name;
     }
