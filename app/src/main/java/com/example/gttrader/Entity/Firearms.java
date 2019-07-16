@@ -2,6 +2,9 @@ package com.example.gttrader.Entity;
 import java.util.Random;
 
 public class Firearms extends Goods {
+    /**
+     * Method which creates the firearms good
+     */
     public Firearms() {
         super("Firearms", 3, 1, 5,
                 1200, -75, 100, PriceIncreaseEvent.HUNTINGSEASON,
@@ -17,6 +20,10 @@ public class Firearms extends Goods {
 
     }
 
+    /**
+     * Method which gets hashcode of good
+     * @return hashcode
+     */
     public int hashCode() {
         return 1;
     }

@@ -44,21 +44,11 @@ public class Scooter {
 
     }
 
-    public void removeFromHold(Goods[] itemsToRemove) {
-        for (Goods good : itemsToRemove) {
-            if (scooter_hold.containsKey(good.hashCode())) {
-                if (scooter_hold.get(good.hashCode()) == 1) {
-                    scooter_hold.remove(good.hashCode());
-
-                } else {
-                    scooter_hold.put(good.hashCode(),scooter_hold.get(good.hashCode()) - 1);
-
-                }
-                current_capacity--;
-            }
-        }
-    }
-
+    /**
+     * attempts to add a good to the scooter's cargo hold
+     * @param itemToRemove item you want to remove from hold
+     * @return boolean true if successfully removed false if not successfully removed
+     */
     public boolean removeFromHold2(Goods itemToRemove) {
         if (scooter_hold.containsKey(itemToRemove.hashCode())) {
             if (scooter_hold.get(itemToRemove.hashCode()) > 0) {
@@ -72,10 +62,6 @@ public class Scooter {
 
     public Map<Integer, Integer> getScooter_hold() {
         return scooter_hold;
-    }
-
-    public void setScooter_hold(Map<Integer, Integer> scooter_hold) {
-        this.scooter_hold = scooter_hold;
     }
 
     public double getBatteryLife() {
