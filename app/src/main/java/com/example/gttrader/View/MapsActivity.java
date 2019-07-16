@@ -86,7 +86,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
                     intent.putExtra("nameOfPlace", marker.getTag().toString());
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "You trigger " + travelViewModel.randomEventGetter() + " event!", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), "You trigger " + travelViewModel.randomEventGetter()
+//                            + " event! Your lost some credits and your current credit is + "
+//                            + configurationViewModel.robbed() + " credits.", Toast.LENGTH_LONG).show();
+                    if (travelViewModel.randomEventGetter().equals("ROBBERY")) {//robbery event is triggered
+                        Toast.makeText(getApplicationContext(), "You trigger " + travelViewModel.randomEventGetter()
+                                + " event! Your lost some credits and your current credit is + "
+                                + configurationViewModel.robbed() + " credits.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "You trigger " + travelViewModel.randomEventGetter()
+                                + " event! Your lost some credits and your current credit is + "
+                                + configurationViewModel.robbed() + " credits.", Toast.LENGTH_LONG).show();
+                    }
+//                    else if (travelViewModel.randomEventGetter().euqlas("RAIN")) {
+//                        System.out.println();
+//                    }
                   //  configurationViewModel.robbed();
                 }
                     //Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();//////***********

@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ConfigurationViewModel configuration = new ConfigurationViewModel();
 
+    //private Player player;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
                 else {
                     configuration.initializer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
-                    //ConfigurationViewModel.makeRegions();
-                    //ConfigurationViewModel.initNewPlayer(pilot_pts, engineer_pts, fighter_pts, trader_pts, name);
                     startActivity(new Intent(MainActivity.this, Main2Activity.class));
                     Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(MainActivity.this, PlayerConfirmation.class));
 
                 }
             }});

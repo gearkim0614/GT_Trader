@@ -12,12 +12,13 @@ import java.util.Random;
 public class ConfigurationViewModel {
     private Universe universe = Universe.getUniverse();
     private Player player;
+            //= new Player("player", 4, 4, 4, 4);
 
     public static boolean addUpToSixteen(int pilot, int engineer, int fighter, int trader) {
         return (pilot + engineer + fighter + trader == 16);
     }
 
-    public void initializer(int pilot, int engineer, int fighter, int trader, String name) {
+    public Player initializer(int pilot, int engineer, int fighter, int trader, String name) {//changed return type
         player = new Player(name, pilot, engineer, fighter, trader);
         System.out.println(player);
 
@@ -25,6 +26,7 @@ public class ConfigurationViewModel {
         universe.setPlayer(player);
         System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
                 + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
+        return player;
 
     }
 
@@ -35,11 +37,19 @@ public class ConfigurationViewModel {
 //
 //    }
 
-//    public double robbed () {
-//        Random ran = new Random();
-//        int money = ran.nextInt(50) + 100;
-//        player.setCredits(player.getCredits() - money);
-//        return player.getCredits();
+    public double robbed () {
+        Random ran = new Random();
+        int money_lost = ran.nextInt(50) + 100;//the robber will rob from 50 to 150 credits
+        if (universe.getPlayer().getCredits() >= money_lost) {//the money is enough to lose
+            universe.getPlayer().setCredits(universe.getPlayer().getCredits() - money_lost);
+        } else {
+            universe.getPlayer().setCredits(0);
+        }
+        return universe.getPlayer().getCredits();
+    }
+
+//    public String rain () {
+//        //will lose pilot_point, fight_point,
 //    }
 
     public Player getPlayer() {
