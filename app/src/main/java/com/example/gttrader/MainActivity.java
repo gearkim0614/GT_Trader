@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.content.Intent;
 
 import com.example.gttrader.Entity.DifficultyLevel;
+import com.example.gttrader.Entity.Universe;
 import com.example.gttrader.R;
 import com.example.gttrader.View.Main2Activity;
 import com.example.gttrader.ViewModel.ConfigurationViewModel;
@@ -23,6 +24,11 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
     EditText playerNameText;
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private ConfigurationViewModel configuration = new ConfigurationViewModel();
 
     //private Player player;
+    private Gson gson;
+    private Universe universe = Universe.getUniverse();
+
 
 
     @Override
@@ -61,6 +70,30 @@ public class MainActivity extends AppCompatActivity {
         levelSpinner.setAdapter(adapter);
 
 
+        //read file
+        File path = getApplicationContext().getFilesDir();
+        File file = new File(path, "Info.json");
+        try {
+            int length = (int) file.length();
+            byte[] bytes = new byte[length];
+            FileInputStream in = new FileInputStream(file);
+            in.read(bytes);
+            String contents = new String(bytes);
+            in.close();
+//            Log.d("FileFromLastInstance", contents);
+            if (!contents.equals("")) {
+                System.out.println("here");
+                Player player = gson.fromJson(contents, Player.class);
+                universe.setPlayer(player);
+                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();
+//                previousStateReviewText.setText(previousStateReview.getReview());
+//                previousStateRatingText.setText(previousStateReview.getRating() + "");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         start_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
