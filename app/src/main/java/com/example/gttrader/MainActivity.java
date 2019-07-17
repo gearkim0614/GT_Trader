@@ -1,4 +1,4 @@
-package com.example.gttrader.View;
+package com.example.gttrader;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -7,7 +7,7 @@ import android.content.Intent;
 
 import com.example.gttrader.Entity.DifficultyLevel;
 import com.example.gttrader.Entity.Universe;
-import com.example.gttrader.R;
+import com.example.gttrader.View.Main2Activity;
 import com.example.gttrader.ViewModel.ConfigurationViewModel;
 import com.example.gttrader.Entity.Player;
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("here");
                 Player player = gson.fromJson(contents, Player.class);
                 universe.setPlayer(player);
-                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                startActivity (new Intent(MainActivity.this, Main2Activity.class) );
                 Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();
 //                previousStateReviewText.setText(previousStateReview.getReview());
 //                previousStateRatingText.setText(previousStateReview.getRating() + "");
