@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.TravelActivity"></activity>
+        <activity android:name=".View.ConfigurationActivity"></activity>
+        <activity android:name=".View.TravelActivity" />
         <activity android:name=".View.ViewCargoHoldActivity" />
         <activity android:name=".View.SellMarketplaceActivity" />
         <activity android:name=".View.BuyMarketplaceActivity" />
@@ -30,7 +31,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCI5VfjA8IUtgwSsoUew5xvFk1ZgTTsndA" />
+            android:value="AIzaSyCbg_zs7iWA1tlYMoWzWLniEKLXscysQQE" />
 
         <activity
             android:name=".View.MapsActivity"
