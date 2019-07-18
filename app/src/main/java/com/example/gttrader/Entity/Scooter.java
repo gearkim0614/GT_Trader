@@ -23,6 +23,13 @@ public class Scooter {
         this.batteryLife = 100;
     }
 
+    public Scooter(Map<Integer, Integer> scooter_hold, int current_capacity, double batteryLife) {
+        this.scooter_hold = scooter_hold;
+        this.current_capacity= current_capacity;
+        this.batteryLife = batteryLife;
+        this.MAXCAPACITY = 5;
+    }
+
     /**
      * attempts to add a good to the scooter's cargo hold
      * @param good takes in a good to add to cargo hold

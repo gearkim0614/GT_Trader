@@ -1,14 +1,20 @@
 package com.example.gttrader.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.gttrader.Entity.Player;
+import com.example.gttrader.Entity.Scooter;
 import com.example.gttrader.Entity.Universe;
+import com.example.gttrader.MainActivity;
 import com.example.gttrader.R;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -23,7 +29,9 @@ public class Main2Activity extends AppCompatActivity {
     Button viewCargo;
     Button map;
     Button save;
-    private Gson gson;
+    Button exitButton;
+    private Gson gson = new Gson();
+    private Gson gson2 = new Gson();
     private Universe universe = Universe.getUniverse();
     private Player player = universe.getPlayer();
 
@@ -36,6 +44,7 @@ public class Main2Activity extends AppCompatActivity {
         viewCargo = findViewById(R.id.see_cargo);
         map = findViewById(R.id.map);
         save = findViewById(R.id.save_button);
+        exitButton = findViewById ( R.id.exitButton );
         gson = new Gson();
 
         buyGoods.setOnClickListener(new View.OnClickListener() {
@@ -68,24 +77,27 @@ public class Main2Activity extends AppCompatActivity {
 
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked@Override
-
-                //make object and JSON
-
-                String json = gson.toJson(player);
-//                System.out.println("hi");
-//                System.out.println(json);
-//                Log.d("CurrentFile", json);
+                if (universe.getPlayer () == null) {
+                    save.setEnabled ( false );
+                }
 
 
-                //Make file
+                String pjson = gson.toJson(universe.getPlayer());
+                String sjson = gson2.toJson(universe.getPlayer().getScooter ());
+
+
                 File path = getApplicationContext().getFilesDir();
-                File file = new File(path, "Info.json");
+                File file = new File(path, "PlayerInfo.json");
+                File file2 = new File(path, "ScooterInfo.json");
 
                 //write to file
                 try {
                     FileOutputStream stream = new FileOutputStream(file);
-                    stream.write(json.getBytes());
+                    stream.write(pjson.getBytes());
                     stream.close();
+                    FileOutputStream stream2 = new FileOutputStream (file2);
+                    stream2.write(sjson.getBytes());
+                    stream2.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -94,6 +106,26 @@ public class Main2Activity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
+
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { // button clicked@Override
+
+                finish();
+                //System.exit ( 0 );
+            }
+        });
+
+
+
+
+
+
 
     }
 
