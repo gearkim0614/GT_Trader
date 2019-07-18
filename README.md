@@ -11,7 +11,7 @@ Get Started:
 
 path to where you want to save
 
-1.) git clone (URL here) PLEASE CLONE IT, NOT PULL
+1.) git pull origin master
 
 2.) git status
 
