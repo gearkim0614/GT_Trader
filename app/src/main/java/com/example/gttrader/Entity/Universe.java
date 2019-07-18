@@ -29,4 +29,7 @@ public class Universe {
     public Player getPlayer() {
         return player;
     }
+
+    public static class getUniverse extends Universe {
+    }
 }

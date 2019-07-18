@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.gttrader.Entity.Building;
+import com.example.gttrader.Entity.Scooter;
 import com.example.gttrader.Entity.Universe;
 import com.example.gttrader.Entity.Player;
 import com.example.gttrader.R;
 import com.example.gttrader.ViewModel.TravelViewModel;
 import com.example.gttrader.ViewModel.ConfigurationViewModel;
+import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,6 +35,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private TravelViewModel travelViewModel = new TravelViewModel();
 
     private ConfigurationViewModel configurationViewModel = new ConfigurationViewModel();
+
+    private Scooter scooter = universe.getPlayer().getScooter();
+            //= new Scooter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +103,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Toast.makeText(getApplicationContext(), "You trigger " + eventName
                                 + " event! Your lost some credits and your current credit is + "
                                 + remain_credits + " credits.", Toast.LENGTH_LONG).show();
+                    } else if (eventName.equals("PIRATE")) {//pirate event will rob a random goods from the cargo holds
+                        String removed_goods = scooter.pirateTakeGoods();
+                        Toast.makeText(getApplicationContext(), "OPPS, you just encountered the pirate "
+                                + removed_goods, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "OPPS, you just encountered the pirate "
+                                + removed_goods, Toast.LENGTH_LONG).show();
+                    } else if (eventName.equals("TREASUREBOX")) {
+                        String message = scooter.findTreasureBox();
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
 //                    else if (travelViewModel.randomEventGetter().euqlas("RAIN")) {
 //                        System.out.println();

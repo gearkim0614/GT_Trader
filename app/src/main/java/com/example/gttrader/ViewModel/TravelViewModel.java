@@ -25,25 +25,29 @@ public class TravelViewModel {
             return Event.MERCENARY.name();
 //        } else if (num == 2) {
 //            return Event.POLITIC.name();
-//        } else if (num == 3) {
-//            return Event.TRADE.name();
 //        } else if (num == 4) {
 //            return Event.SHIP.name();
-//        } else if (num == 5) {
-//            return Event.PIRATE.name();
 //        } else if (num == 6) {
 //            return Event.POLICE.name();
 //        } else if (num == 7) {
 //            return Event.PRIVATEEVENT.name();
 //        } else if (num == 8) {
 //            return Event.MOVIESCENE.name();
-        } else if (num == 9 || num == 8 || num == 7 || num == 6 || num == 5 || num == 4 || num ==3 || num == 2) {
+        } else if (num == 9) {
             return Event.ROBBERY.name();
+        } else if (num == 3 || num == 2 || num == 4 || num == 6 || num == 7 || num == 8) {
+            return Event.TREASUREBOX.name();
+        } else if (num == 5) {
+            return Event.PIRATE.name();
         } else {
             return Event.RAIN.name();
         }
     }
 
+    /**
+     * decide whether the random event is happening or not
+     * @return a boolean value representing if the event will happen
+     */
     public boolean isHappening() {
         if (random() == 5 || random() == 1 || random() == 2 || random() == 3 || random() == 4) {
             return true;

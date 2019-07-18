@@ -3,6 +3,7 @@ import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Scooter {
     private Map<Integer, Integer> scooter_hold;
@@ -45,6 +46,79 @@ public class Scooter {
     }
 
     /**
+     * choose a random goods from cargo holds and minus the quantity by one
+     * @return a string indicate the goods in the cargo holds being robbed
+     */
+    public String pirateTakeGoods() {
+        //check if the cargo hold is empty, if empty, nothing happens
+        if (current_capacity != 0) {
+            String name;
+            Random ranGenerator = new Random();
+            int randomNumber = -1;
+            while (randomNumber == -1 || scooter_hold.get(randomNumber) == 0) {
+                randomNumber = ranGenerator.nextInt(10) + 1;//1 to 10
+            }
+            scooter_hold.put(randomNumber, scooter_hold.get(randomNumber) - 1);
+            if (randomNumber == 1) {
+                name = "Firearms";
+            } else if (randomNumber == 2) {
+                name = "Food";
+            } else if (randomNumber == 3) {
+                name = "Furs";
+            } else if (randomNumber == 4) {
+                name = "Games";
+            } else if (randomNumber == 5) {
+                name = "Machines";
+            } else if (randomNumber == 6) {
+                name = "Medicine";
+            } else if (randomNumber == 7) {
+                name = "Narcotics";
+            } else if (randomNumber == 8) {
+                name = "Ore";
+            } else if (randomNumber == 9) {
+                name = "Robots";
+            } else  {
+                name = "Water";
+            }
+            //remove the certain goods by one
+            return name + "is robbed by pirate";
+        }
+        return "The cargo is empty, so nothing got robbed by the pirate";
+    }
+
+    public String findTreasureBox() {
+        String name = "";
+        if ((current_capacity + 1) != MAXCAPACITY) {
+            Random ranGenerator = new Random();
+            int randomNumber = ranGenerator.nextInt(10) + 1;
+            scooter_hold.put(randomNumber, scooter_hold.get(randomNumber) + 1);
+            if (randomNumber == 1) {
+                name = "Firearms";
+            } else if (randomNumber == 2) {
+                name = "Food";
+            } else if (randomNumber == 3) {
+                name = "Furs";
+            } else if (randomNumber == 4) {
+                name = "Games";
+            } else if (randomNumber == 5) {
+                name = "Machines";
+            } else if (randomNumber == 6) {
+                name = "Medicine";
+            } else if (randomNumber == 7) {
+                name = "Narcotics";
+            } else if (randomNumber == 8) {
+                name = "Ore";
+            } else if (randomNumber == 9) {
+                name = "Robots";
+            } else  {
+                name = "Water";
+            }
+            return "Lucky you! you just discovered a treasure box filled with " + name;
+        }
+        return "Well, you discovered a " + name + ", but your cargo holds are full and you threw it away";
+    }
+
+    /**
      * attempts to add a good to the scooter's cargo hold
      * @param itemToRemove item you want to remove from hold
      * @return boolean true if successfully removed false if not successfully removed
@@ -82,8 +156,7 @@ public class Scooter {
                 name = "Food";
             } else if (key == 3) {
                 name = "Furs";
-            }
-            else if (key == 4) {
+            } else if (key == 4) {
                 name = "Games";
             } else if (key == 5) {
                 name = "Machines";
