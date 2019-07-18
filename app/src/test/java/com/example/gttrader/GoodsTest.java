@@ -1,4 +1,4 @@
-package com.example.gttrader.test;
+package com.example.gttrader;
 
 import org.junit.Test;
 
