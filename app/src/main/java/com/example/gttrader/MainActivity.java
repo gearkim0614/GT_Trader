@@ -1,5 +1,6 @@
 package com.example.gttrader;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Gson gson= new Gson();
     private Gson gson2 = new Gson();
     private Universe universe = Universe.getUniverse();
+    private MediaPlayer mediaPlayer;
 
 
 
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.song);
+        mediaPlayer.start();
         start_gameButton = findViewById(R.id.start_gameButton);
         saveExitButton = findViewById (R.id.saveExitButton);
 
