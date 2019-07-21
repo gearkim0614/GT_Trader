@@ -91,5 +91,12 @@ public class TravelActivity extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { // button clicked
+                //battery_remains.setText("Battery Remains: " + (int) travelViewModel.getBatterRemains() + " %.");
+                startActivity(new Intent(TravelActivity.this, Main2Activity.class));
+            }
+        });
+
     }
 }
