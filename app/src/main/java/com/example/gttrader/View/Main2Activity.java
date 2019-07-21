@@ -45,6 +45,7 @@ public class Main2Activity extends AppCompatActivity {
         map = findViewById(R.id.map);
         save = findViewById(R.id.save_button);
         exitButton = findViewById ( R.id.exitButton );
+        exitButton.setText ( "New Game" );
         gson = new Gson();
 
         buyGoods.setOnClickListener(new View.OnClickListener() {
@@ -107,17 +108,15 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
         exitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked@Override
-
-                finish();
-                //System.exit ( 0 );
+                File[] files = getApplicationContext().getFilesDir().listFiles();
+                if(files != null) {
+                    for(File file : files) {
+                        file.delete();
+                    }
+                }
+                startActivity(new Intent(Main2Activity.this, MainActivity.class));
             }
         });
 
