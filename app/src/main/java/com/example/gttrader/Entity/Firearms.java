@@ -1,6 +1,9 @@
 package com.example.gttrader.Entity;
-import java.util.Random;
+//import java.util.Random;
 
+/**
+ * class representing the firearms good
+ */
 public class Firearms extends Goods {
     /**
      * Method which creates the firearms good
@@ -11,13 +14,13 @@ public class Firearms extends Goods {
                 Resource.MINERALRICH, Resource.WARLIKE, 600, 2000);
     }
 
+    /**
+     * checks if two goods are firearms and equal
+     * @param other the other good to be compared to
+     * @return boolean representing if the two Goods are equal
+     */
     public boolean equals(Goods other) {
-        if (other == this) {
-            return true;
-        } else if (!(other instanceof Firearms)) {
-            return false;
-        } return true;
-
+        return this.hashCode() == other.hashCode();
     }
 
     /**

@@ -1,6 +1,9 @@
 package com.example.gttrader.Entity;
-import java.util.Random;
+//import java.util.Random;
 
+/**
+ * class representing the food good
+ */
 public class Food extends Goods {
     /**
      * Method which creates the food good
@@ -10,18 +13,22 @@ public class Food extends Goods {
                 Resource.POORSOIL, 90, 300);
     }
 
+    /**
+     * equals method for food
+     * @param other the other good to be compared to
+     * @return boolean representing if the two objects are equal
+     */
     public boolean equals(Goods other) {
         if (other == this) {
             return true;
-        } else if (!(other instanceof Food)) {
-            return false;
-        } return true;
+        }
+        return other instanceof Food;
 
     }
 
     /**
      * Method which gets hashcode of good
-     * @return hashcode
+     * @return hashcode of food
      */
     public int hashCode() {
         return 2;
