@@ -1,5 +1,8 @@
 package com.example.gttrader.Entity;
 
+/**
+ * enum class representing different resources in the regions
+ */
 public enum Resource {
     NOSPECIALRESOURCES("No Special Resources"),
     MINERALRICH("Mineral Rich"),

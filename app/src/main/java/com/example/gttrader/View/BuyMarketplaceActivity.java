@@ -24,11 +24,12 @@ import com.example.gttrader.Entity.Robots;
 import com.example.gttrader.Entity.Water;
 import com.example.gttrader.Entity.Universe;
 import com.example.gttrader.Entity.Player;
-//import com.example.gttrader.Entity.Region;
 
 import java.util.HashMap;
 
-
+/**
+ * This class handles the UI for a player buying goods in the marketplace
+ */
 public class BuyMarketplaceActivity extends AppCompatActivity {
 
     ImageButton waterButton;
@@ -68,13 +69,14 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
 
     TextView credit;
 
-    private Universe universe = Universe.getUniverse();
+    private final Universe universe = Universe.getUniverse();
 
-    private BuyGoodViewModel buyGoodVM = new BuyGoodViewModel();
+    private final BuyGoodViewModel buyGoodVM = new BuyGoodViewModel();
 
     Player player = universe.getPlayer();
 
-    HashMap<Integer, Integer> scooter_hold = (HashMap<Integer, Integer>) player.getScooter().getScooter_hold();
+    HashMap<Integer, Integer> scooter_hold =
+            (HashMap<Integer, Integer>) player.getScooter().getScooter_hold();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,16 +94,16 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         robots_quantity = findViewById(R.id.robots_quantity);
         firearms_quantity = findViewById(R.id.firearms_quantity);
 
-        waterButton = (ImageButton) findViewById(R.id.water);
-        furButton = (ImageButton) findViewById(R.id.fur);
-        foodButton = (ImageButton) findViewById(R.id.food);
-        oreButton = (ImageButton) findViewById(R.id.ore);
-        gamesButton = (ImageButton) findViewById(R.id.games);
-        firearmsButton = (ImageButton) findViewById(R.id.firearms);
-        medicineButton = (ImageButton) findViewById(R.id.medicine);
-        narcoticsButton = (ImageButton) findViewById(R.id.narcotics);
-        machinesButton = (ImageButton) findViewById(R.id.machines);
-        robotsButton = (ImageButton) findViewById(R.id.robots);
+        waterButton = findViewById(R.id.water);
+        furButton =  findViewById(R.id.fur);
+        foodButton = findViewById(R.id.food);
+        oreButton = findViewById(R.id.ore);
+        gamesButton = findViewById(R.id.games);
+        firearmsButton = findViewById(R.id.firearms);
+        medicineButton = findViewById(R.id.medicine);
+        narcoticsButton = findViewById(R.id.narcotics);
+        machinesButton = findViewById(R.id.machines);
+        robotsButton = findViewById(R.id.robots);
 
         water_price = findViewById(R.id.water_price);
         fur_price = findViewById(R.id.fur_price);
@@ -117,13 +119,9 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         back = findViewById(R.id.TravelBack);
 
         credit = findViewById(R.id.credit);
-        credit.setText("Credit: $" + player.getCredits());
-//
-//        Region region = universe.getPlayer().getRegion();
-//        int techLevel = region.getTechLevel().getLevel();
+        String creditString = "Credit: $" + player.getCredits();
+        credit.setText(creditString);
 
-//        Building building = universe.getPlayer().getBuilding();
-//        int techLevel = Building.FreshmanDorms.getTechLevel().getLevel();
 
         int techLevel = universe.getPlayer().getBuilding().getTechLevel().getLevel();
 
@@ -133,71 +131,91 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         if (water.getMinTechLevelProduce() > techLevel) {
             waterButton.setEnabled(false);
         }
-        water_price.setText("$" + water.market_price());
-        water_quantity.setText("Quantity: " + scooter_hold.get(water.hashCode()));
+        String waterPrice = "$" + water.market_price();
+        String waterQuantity = "Quantity: " + scooter_hold.get(water.hashCode());
+        water_price.setText(waterPrice);
+        water_quantity.setText(waterQuantity);
 
         final Furs furs = new Furs();
         if (furs.getMinTechLevelProduce() > techLevel) {
             furButton.setEnabled(false);
         }
-        fur_price.setText("$" + furs.market_price());
-        fur_quantity.setText("Quantity: " + scooter_hold.get(furs.hashCode()));
+        String furPrice = "$" + furs.market_price();
+        String furQuantity = "Quantity: " + scooter_hold.get(furs.hashCode());
+        fur_price.setText(furPrice);
+        fur_quantity.setText(furQuantity);
 
         final Food food = new Food();
         if (food.getMinTechLevelProduce() > techLevel) {
             foodButton.setEnabled(false);
         }
-        food_price.setText("$" + food.market_price());
-        food_quantity.setText("Quantity: " + scooter_hold.get(food.hashCode()));
+        String foodPrice = "$" + food.market_price();
+        String foodQuantity = "Quantity: " + scooter_hold.get(food.hashCode());
+        food_price.setText(foodPrice );
+        food_quantity.setText(foodQuantity);
 
         final Ore ore = new Ore();
         if (ore.getMinTechLevelProduce() > techLevel) {
             oreButton.setEnabled(false);
         }
-        ore_price.setText("$" + ore.market_price());
-        ore_quantity.setText("Quantity: " + scooter_hold.get(ore.hashCode()));
+        String orePrice = "$" + ore.market_price();
+        String oreQuantity = "Quantity: " + scooter_hold.get(ore.hashCode());
+        ore_price.setText(orePrice);
+        ore_quantity.setText(oreQuantity );
 
         final Games games = new Games();
         if (games.getMinTechLevelProduce() > techLevel) {
             gamesButton.setEnabled(false);
         }
-        games_price.setText("$" + games.market_price());
-        games_quantity.setText("Quantity: " + scooter_hold.get(games.hashCode()));
+        String gamesPrice = "$" + games.market_price();
+        String gamesQuantity = "Quantity: " + scooter_hold.get(games.hashCode());
+        games_price.setText(gamesPrice);
+        games_quantity.setText(gamesQuantity);
 
         final Firearms firearms = new Firearms();
         if (firearms.getMinTechLevelProduce() > techLevel) {
             firearmsButton.setEnabled(false);
         }
-        firearms_price.setText("$" + firearms.market_price());
-        firearms_quantity.setText("Quantity: " + scooter_hold.get(firearms.hashCode()));
+        String firearmsPrice = "$" + firearms.market_price();
+        firearms_price.setText(firearmsPrice);
+        String firearmsQuantity = "Quantity: " + scooter_hold.get(firearms.hashCode());
+        firearms_quantity.setText(firearmsQuantity);
 
         final Medicine medicine = new Medicine();
         if (medicine.getMinTechLevelProduce() > techLevel) {
             medicineButton.setEnabled(false);
         }
-        medicine_price.setText("$" + medicine.market_price());
-        medicine_quantity.setText("Quantity: " + scooter_hold.get(medicine.hashCode()));
+        String medicingPrice = "$" + medicine.market_price();
+        String medicineQuantity = "Quantity: " + scooter_hold.get(medicine.hashCode());
+        medicine_price.setText(medicingPrice);
+        medicine_quantity.setText(medicineQuantity);
 
         final Narcotics narcotics = new Narcotics();
         if (narcotics.getMinTechLevelProduce() > techLevel) {
             narcoticsButton.setEnabled(false);
         }
-        narcotics_price.setText("$" + narcotics.market_price());
-        narcotics_quantity.setText("Quantity: " + scooter_hold.get(narcotics.hashCode()));
+        String narcoticsPrice = "$" + narcotics.market_price();
+        String narcoticsQuantity = "Quantity: " + scooter_hold.get(narcotics.hashCode());
+        narcotics_price.setText(narcoticsPrice);
+        narcotics_quantity.setText(narcoticsQuantity);
 
         final Machines machines = new Machines();
         if (machines.getMinTechLevelProduce() > techLevel) {
             machinesButton.setEnabled(false);
         }
-        machines_price.setText("$" + machines.market_price());
-        machines_quantity.setText("Quantity: " + scooter_hold.get(machines.hashCode()));
+        String machinesPrice = "$" + machines.market_price();
+        String machinesQuantity = "Quantity: " + scooter_hold.get(machines.hashCode());
+        machines_price.setText(machinesPrice);
+        machines_quantity.setText(machinesQuantity);
 
         final Robots robots = new Robots();
         if (robots.getMinTechLevelProduce() > techLevel) {
             robotsButton.setEnabled(false);
         }
-        robots_price.setText("$" + robots.market_price());
-        robots_quantity.setText("Quantity: " + scooter_hold.get(robots.hashCode()));
+        String robotsPrice = "$" + robots.market_price();
+        String robotsQuantity = "Quantity: " + scooter_hold.get(robots.hashCode());
+        robots_price.setText(robotsPrice);
+        robots_quantity.setText(robotsQuantity);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
@@ -209,8 +227,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         waterButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(water);
-                credit.setText("Credit: $" + player.getCredits());
-                water_quantity.setText("Quantity: " + scooter_hold.get(water.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String waterQ = "Quantity: " + scooter_hold.get(water.hashCode());
+                water_quantity.setText(waterQ);
 
             }
         });
@@ -218,8 +238,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         furButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(furs);
-                credit.setText("Credit: $" + player.getCredits());
-                fur_quantity.setText("Quantity: " + scooter_hold.get(furs.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String furQ = "Quantity: " + scooter_hold.get(furs.hashCode());
+                fur_quantity.setText(furQ);
 
             }
         });
@@ -227,8 +249,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         foodButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(food);
-                credit.setText("Credit: $" + player.getCredits());
-                food_quantity.setText("Quantity: " + scooter_hold.get(food.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String foodQ = "Quantity: " + scooter_hold.get(food.hashCode());
+                food_quantity.setText(foodQ);
 
             }
         });
@@ -236,8 +260,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         oreButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(ore);
-                credit.setText("Credit: $" + player.getCredits());
-                ore_quantity.setText("Quantity: " + scooter_hold.get(ore.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String oreQ = "Quantity: " + scooter_hold.get(ore.hashCode());
+                ore_quantity.setText(oreQ);
 
             }
         });
@@ -245,8 +271,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         gamesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(games);
-                credit.setText("Credit: $" + player.getCredits());
-                games_quantity.setText("Quantity: " + scooter_hold.get(games.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String gamesQ = "Quantity: " + scooter_hold.get(games.hashCode());
+                games_quantity.setText(gamesQ);
 
             }
         });
@@ -254,8 +282,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         firearmsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(firearms);
-                credit.setText("Credit: $" + player.getCredits());
-                firearms_quantity.setText("Quantity: " + scooter_hold.get(firearms.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String firearmsQ = "Quantity: " + scooter_hold.get(firearms.hashCode());
+                firearms_quantity.setText(firearmsQ);
 
             }
         });
@@ -263,8 +293,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         medicineButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(medicine);
-                credit.setText("Credit: $" + player.getCredits());
-                medicine_quantity.setText("Quantity: " + scooter_hold.get(medicine.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String medicineQ = "Quantity: " + scooter_hold.get(medicine.hashCode());
+                medicine_quantity.setText(medicineQ);
 
             }
         });
@@ -272,8 +304,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         narcoticsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(narcotics);
-                credit.setText("Credit: $" + player.getCredits());
-                narcotics_quantity.setText("Quantity: " + scooter_hold.get(narcotics.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String narcoticsQ = "Quantity: " + scooter_hold.get(narcotics.hashCode());
+                narcotics_quantity.setText(narcoticsQ);
 
             }
         });
@@ -281,8 +315,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         machinesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(machines);
-                credit.setText("Credit: $" + player.getCredits());
-                machines_quantity.setText("Quantity: " + scooter_hold.get(machines.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String machinesQ = "Quantity: " + scooter_hold.get(machines.hashCode());
+                machines_quantity.setText(machinesQ);
 
             }
         });
@@ -290,8 +326,10 @@ public class BuyMarketplaceActivity extends AppCompatActivity {
         robotsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { // button clicked
                 buyGoodVM.buyGood(robots);
-                credit.setText("Credit: $" + player.getCredits());
-                robots_quantity.setText("Quantity: " + scooter_hold.get(robots.hashCode()));
+                String creditString = "Credit: $" + player.getCredits();
+                credit.setText(creditString);
+                String robotsQ = "Quantity: " + scooter_hold.get(robots.hashCode());
+                robots_quantity.setText(robotsQ);
 
             }
         });

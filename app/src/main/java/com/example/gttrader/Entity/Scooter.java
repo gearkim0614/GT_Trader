@@ -1,20 +1,24 @@
 package com.example.gttrader.Entity;
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * class representing a player's transportation
+ */
 public class Scooter {
     private Map<Integer, Integer> scooter_hold;
     private final int MAXCAPACITY;
     private int current_capacity;
-    private static double batteryLife;
+    private double batteryLife;
 
-
+    /**
+     * default constructor for a scooter
+     */
     public Scooter() {
 
-        this.scooter_hold = new HashMap<Integer, Integer>();
+        this.scooter_hold = new HashMap<>();
         this.MAXCAPACITY = 5;
         this.current_capacity = 0;
         for (int i = 1; i < 11; i++) {
@@ -23,6 +27,12 @@ public class Scooter {
         this.batteryLife = 100;
     }
 
+    /**
+     * scooter constructor
+     * @param scooter_hold hashmap representing the goods in the scooter hold
+     * @param current_capacity amount of goods in the scooter hold
+     * @param batteryLife battery life of the scooter
+     */
     public Scooter(Map<Integer, Integer> scooter_hold, int current_capacity, double batteryLife) {
         this.scooter_hold = scooter_hold;
         this.current_capacity= current_capacity;
@@ -62,7 +72,7 @@ public class Scooter {
             String name;
             Random ranGenerator = new Random();
             int randomNumber = -1;
-            while (randomNumber == -1 || scooter_hold.get(randomNumber) == 0) {
+            while ((randomNumber == -1) || (scooter_hold.get(randomNumber) == 0)) {
                 randomNumber = ranGenerator.nextInt(10) + 1;//1 to 10
             }
             scooter_hold.put(randomNumber, scooter_hold.get(randomNumber) - 1);
@@ -93,6 +103,10 @@ public class Scooter {
         return "The cargo is empty, so nothing got robbed by the pirate";
     }
 
+    /**
+     * checks for a random event of the player finding a treasure
+     * @return String of a treasure that was found
+     */
     public String findTreasureBox() {
         String name = "";
         if ((current_capacity + 1) != MAXCAPACITY) {
@@ -141,18 +155,34 @@ public class Scooter {
         return false;
     }
 
+    /**
+     * getter for the scooter hold
+     * @return hashmap representing the scooter hold
+     */
     public Map<Integer, Integer> getScooter_hold() {
         return scooter_hold;
     }
 
+    /**
+     * getter for battery life
+     * @return double representing the scooter battery life
+     */
     public double getBatteryLife() {
         return batteryLife;
     }
 
+    /**
+     * setter for battery life
+     * @param batteryLife the scooter's updated battery life
+     */
     public void setBatteryLife(double batteryLife) {
         this.batteryLife = batteryLife;
     }
 
+    /**
+     * generates an ArrayList representation of the scooter hold
+     * @return ArrayList representation of the scooter hold
+     */
     public ArrayList<String> holdToList() {
         ArrayList<String> cargoList = new ArrayList<>();
         for (int key : scooter_hold.keySet()) {

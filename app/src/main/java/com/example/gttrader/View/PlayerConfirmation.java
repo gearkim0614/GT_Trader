@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gttrader.R;
 
+/**
+ * UI for player confirmation
+ */
 public class PlayerConfirmation extends AppCompatActivity {
 
     @Override

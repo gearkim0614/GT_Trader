@@ -2,26 +2,26 @@ package com.example.gttrader.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.gttrader.Entity.Player;
-import com.example.gttrader.Entity.Scooter;
 import com.example.gttrader.Entity.Universe;
-import com.example.gttrader.MainActivity;
 import com.example.gttrader.R;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.io.File;
-import java.io.FileInputStream;
+//import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-
+/**
+ * UI for the player menu
+ * the player can choose to buy a good, sell a good, or travel
+ */
 public class Main2Activity extends AppCompatActivity {
 
     Button buyGoods;
@@ -32,7 +32,7 @@ public class Main2Activity extends AppCompatActivity {
     Button exitButton;
     private Gson gson = new Gson();
     private Gson gson2 = new Gson();
-    private Universe universe = Universe.getUniverse();
+    private final Universe universe = Universe.getUniverse();
     private Player player = universe.getPlayer();
 
     @Override

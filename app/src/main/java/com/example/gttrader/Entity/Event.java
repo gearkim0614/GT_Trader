@@ -1,5 +1,8 @@
 package com.example.gttrader.Entity;
 
+/**
+ * enum representing the special events in the regions
+ */
 public enum Event {
 
     MERCENARY("Mercenaries", 1, 0.10),
@@ -13,9 +16,9 @@ public enum Event {
     ROBBERY("Robbery", 9, 0.10),
     RAIN("Rain", 10,0.10);
 
-    private String name;
-    private int eventNumber;
-    private double eventChance;
+    private final String name;
+    private final int eventNumber;
+    private final double eventChance;
 
     Event(String name, int eventNumber, double eventChance) {
         this.name = name;

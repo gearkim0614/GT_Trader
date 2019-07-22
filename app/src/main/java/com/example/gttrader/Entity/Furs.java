@@ -1,6 +1,9 @@
 package com.example.gttrader.Entity;
-import java.util.Random;
+//import java.util.Random;
 
+/**
+ * class for the furs good
+ */
 public class Furs extends Goods {
     /**
      * Method which creates the furs good
@@ -10,12 +13,16 @@ public class Furs extends Goods {
                 Resource.LIFELESS, 230, 2000);
     }
 
+    /**
+     * equals method for furs
+     * @param other the other good to compare
+     * @return boolean representing if the two furs are equal
+     */
     public boolean equals(Goods other) {
         if (other == this) {
             return true;
-        } else if (!(other instanceof Furs)) {
-            return false;
-        } return true;
+        }
+        return other instanceof Furs;
 
     }
 

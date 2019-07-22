@@ -1,6 +1,9 @@
 package com.example.gttrader.Entity;
-import java.util.Random;
+//import java.util.Random;
 
+/**
+ * class for the games good
+ */
 public class Games extends Goods {
     /**
      * Method which creates the games good
@@ -10,13 +13,16 @@ public class Games extends Goods {
                 null, 160, 300);
     }
 
+    /**
+     * equals method for games
+     * @param other the other good to compare to
+     * @return boolean representing if the two goods are equal
+     */
     public boolean equals(Goods other) {
         if (other == this) {
             return true;
-        } else if (!(other instanceof Games)) {
-            return false;
-        } return true;
-
+        }
+        return other instanceof Games;
     }
 
     /**

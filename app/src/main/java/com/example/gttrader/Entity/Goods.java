@@ -5,24 +5,27 @@ import com.example.gttrader.Entity.Player;
 
 import java.util.Random;
 
+/**
+ * goods superclass
+ */
 public class Goods {
     protected String name;
-    private int minTechLevelProduce;
-    private int minTechLevelUse;
-    private int techLevelProduceMost;
-    private double basePrice;
-    private int priceIncreasePerLevel;
-    private int var;
-    private PriceIncreaseEvent priceIncreaseEvent;
-    private Resource lowPriceCondition;
-    private Resource highPriceCondition;
-    private double MTL;
-    private double MTH;
-    private double variance;
-    private double inflation = 0.1;
+    private final int minTechLevelProduce;
+    private final int minTechLevelUse;
+    private final int techLevelProduceMost;
+    private final double basePrice;
+    private final int priceIncreasePerLevel;
+    private final int var;
+    private final PriceIncreaseEvent priceIncreaseEvent;
+    private final Resource lowPriceCondition;
+    private final Resource highPriceCondition;
+    private final double MTL;
+    private final double MTH;
+    private final double variance;
+    private final double inflation = 0.1;
     private Building location;
-    private Universe universe = Universe.getUniverse();
-    private Player player = universe.getPlayer();
+    private final Universe universe = Universe.getUniverse();
+    private final Player player = universe.getPlayer();
 
     /**
      * Goods method to create a goods object with passed in values for name, min tech levels to
@@ -210,7 +213,7 @@ public class Goods {
 //
 //    /**
 //     * Getter method which gets the high price condition when trading this good
-//     * @return the high price conditon
+//     * @return the high price condition
 //     */
 //    public Resource getHighPriceCondition() {
 //        return highPriceCondition;

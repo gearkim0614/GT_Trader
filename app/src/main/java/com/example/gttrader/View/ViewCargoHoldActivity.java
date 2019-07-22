@@ -16,7 +16,9 @@ import android.widget.LinearLayout;
 import com.example.gttrader.Entity.Player;
 import com.example.gttrader.Entity.Scooter;
 
-
+/**
+ * UI for viewing a player's cargo hold
+ */
 public class ViewCargoHoldActivity extends AppCompatActivity {
 
     LinearLayout layout;

@@ -1,7 +1,5 @@
 package com.example.gttrader.ViewModel;
 import com.example.gttrader.Entity.Building;
-import com.example.gttrader.Entity.DifficultyLevel;
-import com.example.gttrader.Entity.Ore;
 import com.example.gttrader.Entity.Player;
 
 
@@ -9,34 +7,49 @@ import com.example.gttrader.Entity.Universe;
 
 import java.util.Random;
 
+/**
+ * This class connects the Configuration activity to the Player class in the model
+ * It sets up all of the player information
+ */
 public class ConfigurationViewModel {
-    private Universe universe = Universe.getUniverse();
+    private final Universe universe = Universe.getUniverse();
     private Player player;
             //= new Player("player", 4, 4, 4, 4);
 
+    /**
+     * checks if the player's skill points are valid and add up to 16
+     * @param pilot player's pilot skill points
+     * @param engineer player's engineer skill points
+     * @param fighter player's fighter skill points
+     * @param trader player's trader skill points
+     * @return boolean representing if the points add up to 16
+     */
     public static boolean addUpToSixteen(int pilot, int engineer, int fighter, int trader) {
-        return (pilot + engineer + fighter + trader == 16);
+        return (pilot + engineer + fighter + trader) == 16;
     }
 
-    public Player initializer(int pilot, int engineer, int fighter, int trader, String name) {//changed return type
+    /**
+     * sets up a new player in the game
+     * @param pilot player's pilot skill points
+     * @param engineer player's engineer skill points
+     * @param fighter player's fighter skill points
+     * @param trader player's trader skill points
+     * @param name player's name
+     * @return a new Player object with the appropriate attributes
+     */
+    public Player initializer(int pilot, int engineer, int fighter, int trader, String name) {
         player = new Player(name, pilot, engineer, fighter, trader);
-        System.out.println(player);
 
         player.setBuilding(Building.FreshmanDorms);
         universe.setPlayer(player);
-        System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
-                + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
         return player;
 
     }
 
-//    public static void makeRegions() {
-//
-//        System.out.println(Building.BOBBYDODD + "\n" + Building.COC + "\n" + Building.CRC + "\n" + Building.CULC + "\n" + Building.FreshmanDorms + "\n" + Building.GreekHouses
-//        + "\n" + Building.NorthAveDinning + "\n" + Building.StudentCenter + "\n" + Building.TechSquare + "\n" + Building.TechTower);
-//
-//    }
-
+    /**
+     * checks for a random event of the player being robbed
+     * @return double representing the player's updated credits
+     */
     public double robbed () {
         Random ran = new Random();
         int money_lost = ran.nextInt(50) + 100;//the robber will rob from 50 to 150 credits
@@ -52,6 +65,10 @@ public class ConfigurationViewModel {
 //        //will lose pilot_point, fight_point,
 //    }
 
+    /**
+     * getter for the player
+     * @return the player in the game
+     */
     public Player getPlayer() {
         return player;
     }

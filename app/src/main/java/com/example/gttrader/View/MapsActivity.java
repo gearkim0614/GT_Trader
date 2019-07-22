@@ -11,11 +11,9 @@ import android.widget.Toast;
 import com.example.gttrader.Entity.Building;
 import com.example.gttrader.Entity.Scooter;
 import com.example.gttrader.Entity.Universe;
-import com.example.gttrader.Entity.Player;
 import com.example.gttrader.R;
 import com.example.gttrader.ViewModel.TravelViewModel;
 import com.example.gttrader.ViewModel.ConfigurationViewModel;
-import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -24,15 +22,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Marker;
 
-//API Key: AIzaSyDCe70F3e0YF1HxZsh3LbV1WHhdbEicxpw
-
+/**
+ * UI for the map which the player uses to travel between regions
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private Universe universe = Universe.getUniverse();
+    private final Universe universe = Universe.getUniverse();
 
     private GoogleMap mMap;
 
-    private TravelViewModel travelViewModel = new TravelViewModel();
+    private final TravelViewModel travelViewModel = new TravelViewModel();
 
     private ConfigurationViewModel configurationViewModel = new ConfigurationViewModel();
 
@@ -77,7 +76,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.i("TAG", "WATCHME");
             Log.i("TAG!!", location.getName());
             LatLng marker = new LatLng(location.getLatitude(), location.getLongitude());
-            Marker marker1 = mMap.addMarker(new MarkerOptions().position(marker).title(location.getName()));
+            Marker marker1 =
+                    mMap.addMarker(new MarkerOptions().position(marker).title(location.getName()));
 //            mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title(location.getName())).showInfoWindow();
             marker1.setTag(location.getName());
         }
@@ -114,15 +114,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
-//                    else if (travelViewModel.randomEventGetter().euqlas("RAIN")) {
-//                        System.out.println();
-//                    }
-                  //  configurationViewModel.robbed();
+
                 }
                     //Toast.makeText(getApplicationContext(), "Welcome!", Toast.LENGTH_LONG).show();//////***********
                     Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
-                    intent.putExtra("nameOfPlace", marker.getTag().toString());
-                    startActivity(intent);
+                    try {
+                        intent.putExtra("nameOfPlace", marker.getTag().toString());
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        Log.d("error", "null pointer exception");
+                    }
 
                 return false;
             }

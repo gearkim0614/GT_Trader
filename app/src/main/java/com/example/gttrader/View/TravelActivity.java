@@ -1,7 +1,7 @@
 package com.example.gttrader.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.util.Log;
+//import android.util.Log;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +15,9 @@ import com.example.gttrader.Entity.Player;
 import com.example.gttrader.R;
 import com.example.gttrader.ViewModel.TravelViewModel;
 
+/**
+ * UI for player travel
+ */
 public class TravelActivity extends AppCompatActivity {
     private LinearLayout layout;
     private Universe universe = Universe.getUniverse();
@@ -23,12 +26,11 @@ public class TravelActivity extends AppCompatActivity {
     private Button goButton;
     private Building location;
 
-    private Building loca;
 
     private TravelViewModel travelViewModel = new TravelViewModel();
     //private Inflation inflation = new Inflation();
-    private boolean can_travel = false;
-    private double batteryNeeded = 0;
+//    private boolean can_travel = false;
+//    private double batteryNeeded = 0;
 
     TextView current_location;
     TextView next_location;
@@ -59,21 +61,22 @@ public class TravelActivity extends AppCompatActivity {
             }
         }
 
-        can_travel = travelViewModel.canTravel(player.getBuilding(), location);
+        boolean can_travel = travelViewModel.canTravel(player.getBuilding(), location);
 
-        current_location.setText("Current Location: " + player.getBuilding().getName());
-        next_location.setText("Next Location: " + location.getName());
+        String currLocation = "Current Location: " + player.getBuilding().getName();
+        String nextLocation = "Next Location: " + location.getName();
+        current_location.setText(currLocation);
+        next_location.setText(nextLocation);
 
+        String batteryRemaining = "Battery Remains: " + (int) travelViewModel.getBatterRemains() + " %.";
+        battery_remains.setText(batteryRemaining);
 
-        battery_remains.setText("Battery Remains: " + (int) travelViewModel.getBatterRemains() + " %.");
-        System.out.println("Battery Remains: " + travelViewModel.getBatterRemains());
-
-
-        battery_needed.setText("Battery needed to travel to " + location.getName() + " is "
-                + Math.round(travelViewModel.batteryNeeded(player.getBuilding(), location)) + " %.");
+        String batteryNeededString = "Battery needed to travel to " + location.getName() + " is "
+                + Math.round(travelViewModel.batteryNeeded(player.getBuilding(), location)) + " %.";
+        battery_needed.setText(batteryNeededString);
 
         goButton = findViewById(R.id.travel_button);
-        batteryNeeded = travelViewModel.batteryNeeded(player.getBuilding(), location);
+        final double batteryNeeded = travelViewModel.batteryNeeded(player.getBuilding(), location);
 
         if (!can_travel) {
             goButton.setEnabled(false);
