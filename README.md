@@ -1,3 +1,5 @@
+Check out our iOS Version at https://github.com/gearkim0614/GT_Trader_iOS
+
 # GT_Trader
  
 This project is designing and implementing a classic open-source Palm Pilot game called Space Trader. The original game was developed by Pieter Spronck. See external link: http://en.wikipedia.org/wiki/Space_Trader_%28Palm_OS%29 (Links to an external site.)Links to an external site. for historical details.
