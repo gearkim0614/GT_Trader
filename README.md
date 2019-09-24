@@ -22,6 +22,13 @@ Created on Android Studios 3.4.1 during Summer of 2019
 # Our team!
 ![0a6ccc34d5c243fc816638f011ffb76a](https://user-images.githubusercontent.com/32786111/65539985-7fcdb280-ded8-11e9-8a5a-b5d8494fb55b.jpeg)
 
+(Left to right)
+
+* Jason Au
+* Shivali Pandya 
+* Will Berry
+* Peggy Zhao
+* Kibeom Kim
 
 # Want to contribute? 
 Here are Git Commands to get you started!
@@ -47,3 +54,7 @@ git clone https://github.com/gearkim0614/GT_Trader
 6.) git commit -m "Message here".
 
 7.) git push
+
+# Found bugs?
+
+Email me at: gearkim0614@gmail.com
